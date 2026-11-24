@@ -1,0 +1,444 @@
+.ac-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0d0d13;
+}
+
+.ac {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #181820;
+  color: #fff;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+.ac *,
+.ac *::before,
+.ac *::after {
+  box-sizing: border-box;
+}
+
+/* decorative glow circle */
+.ac::before {
+  content: "";
+  position: absolute;
+  top: 170px;
+  right: -170px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(40, 72, 190, 0.55), rgba(26, 60, 160, 0.25));
+  pointer-events: none;
+}
+
+.ac-body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 24px 20px 24px;
+}
+
+.ac-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Header ---------- */
+.ac-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.ac-header h1 {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.ac-round-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #272833;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.ac-round-btn:hover {
+  background: #323344;
+}
+.ac-round-btn .ac-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Card preview ---------- */
+.ac-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px;
+  padding: 22px 22px 20px;
+  margin-bottom: 30px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+}
+
+/* dotted "world map" texture */
+.ac-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1.4px);
+  background-size: 9px 9px;
+  -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+.ac-card > * {
+  position: relative;
+}
+
+.ac-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ac-chip {
+  width: 38px;
+  height: 28px;
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(120, 140, 255, 0.5) 49%, rgba(120, 140, 255, 0.5) 51%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(120, 140, 255, 0.5) 49%, rgba(120, 140, 255, 0.5) 51%, transparent 52%);
+  border: 1.5px solid rgba(120, 140, 255, 0.7);
+}
+
+.ac-nfc {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.65);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.ac-number {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  font-size: clamp(19px, 5.6vw, 25px);
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums;
+}
+.ac-number .dim {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ac-holder {
+  margin-top: 6px;
+  min-height: 21px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.92);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ac-card-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.ac-details {
+  display: flex;
+  gap: 30px;
+}
+.ac-details small {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+}
+.ac-details strong {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.ac-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.ac-brand-name {
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* brand marks */
+.ac-mc {
+  display: inline-flex;
+}
+.ac-mc i {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.ac-mc.small i {
+  width: 22px;
+  height: 22px;
+}
+.ac-mc-red {
+  background: #eb001b;
+}
+.ac-mc-orange {
+  margin-left: -9px;
+  background: #f79e1b;
+  opacity: 0.95;
+}
+
+.ac-word {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+}
+.ac-word.small {
+  font-size: 14px;
+}
+.ac-word.visa {
+  font-style: italic;
+  color: #fff;
+}
+.ac-word.amex {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #2e77bc;
+  color: #fff;
+}
+.ac-word.discover {
+  color: #f79e1b;
+}
+
+/* ---------- Fields ---------- */
+.ac-field {
+  margin: 0 0 24px;
+  min-width: 0;
+}
+
+.ac-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #8b8d9b;
+}
+
+.ac-input {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2c2d39;
+  transition: border-color 0.2s;
+}
+.ac-input:focus-within {
+  border-bottom-color: #4a8df0;
+}
+
+.ac-field-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: #9a9cab;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.2s;
+}
+.ac-input:focus-within .ac-field-icon {
+  stroke: #4a8df0;
+}
+
+.ac-input input {
+  flex: 1;
+  min-width: 0;
+  padding: 2px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 16px;
+  color: #fff;
+}
+.ac-input input::placeholder {
+  color: #5f6170;
+}
+.ac-input input:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 0 0 1000px #181820 inset;
+  caret-color: #fff;
+}
+
+.ac-field.has-error .ac-input {
+  border-bottom-color: #ff5c7a;
+}
+
+.ac-error {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #ff7d95;
+}
+
+.ac-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ---------- Footer / buttons ---------- */
+.ac-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding: 14px 20px 22px;
+  background: linear-gradient(to top, #181820 70%, rgba(24, 24, 32, 0));
+  text-align: center;
+}
+
+.ac-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1a63c9, #2877e6);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+}
+.ac-save:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(26, 99, 201, 0.45);
+}
+.ac-save:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+.ac-save:focus-visible {
+  outline: 3px solid #f4d37d;
+  outline-offset: 2px;
+}
+.ac-save.link {
+  max-width: 280px;
+  margin: 24px auto 0;
+}
+
+.ac-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: ac-spin 0.8s linear infinite;
+}
+@keyframes ac-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ac-secure {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #6f7180;
+}
+
+/* ---------- Success ---------- */
+.ac-success {
+  padding: 18px 8px 40px;
+  text-align: center;
+}
+.ac-success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4d37d, #b8862a);
+}
+.ac-success-icon .ac-icon {
+  width: 32px;
+  height: 32px;
+  stroke: #0a1d42;
+  stroke-width: 3;
+}
+.ac-success h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.ac-success p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #a4a6b4;
+}
+.ac-success strong {
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-spinner {
+    animation-duration: 2.5s;
+  }
+}
+
+@media (max-width: 360px) {
+  .ac-body {
+    padding: 20px 14px 20px;
+  }
+  .ac-row {
+    gap: 18px;
+  }
+  .ac-details {
+    gap: 18px;
+  }
+}

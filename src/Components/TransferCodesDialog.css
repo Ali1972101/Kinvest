@@ -1,0 +1,98 @@
+/* Extra styling for the COT / TAC box. The rest comes from EmailCodeDialog.css (the ec- classes). */
+
+.ec-dialog h2 {
+  margin-bottom: 4px;
+}
+
+/* the code is letters and numbers, eight characters, so it is a little smaller than the email code */
+.ec-code.tc-code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 24px;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  text-transform: uppercase;
+}
+.ec-code.tc-code::placeholder {
+  letter-spacing: 0.22em;
+  text-transform: none;
+}
+
+/* progress when both codes are switched on */
+.tc-steps {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 4px;
+  padding: 0;
+  list-style: none;
+}
+.tc-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+.tc-dot {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 11px;
+}
+.tc-steps li.now {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+.tc-steps li.now .tc-dot {
+  background: #fff;
+  color: #14141c;
+}
+.tc-steps li.done {
+  color: #6ee7a8;
+  border-color: rgba(110, 231, 168, 0.4);
+}
+.tc-steps li.done .tc-dot {
+  background: rgba(110, 231, 168, 0.18);
+  color: #6ee7a8;
+}
+
+.light .tc-steps li {
+  border-color: #d5dae6;
+  color: #6b7280;
+}
+.light .tc-dot {
+  background: #eceff5;
+}
+.light .tc-steps li.now {
+  border-color: #0a1d42;
+  color: #0a1d42;
+}
+.light .tc-steps li.now .tc-dot {
+  background: #0a1d42;
+  color: #fff;
+}
+.light .tc-steps li.done {
+  color: #0f8a55;
+  border-color: #9bd8b9;
+}
+.light .tc-steps li.done .tc-dot {
+  background: #e3f6ec;
+  color: #0f8a55;
+}
+
+@media (max-width: 380px) {
+  .ec-code.tc-code {
+    font-size: 20px;
+    letter-spacing: 0.14em;
+  }
+  .tc-steps li span:last-child {
+    display: none;
+  }
+}

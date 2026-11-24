@@ -1,0 +1,463 @@
+.set-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #e9ecf3;
+}
+
+.set {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: #fff;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  color: #14213d;
+  box-shadow: 0 0 60px rgba(10, 29, 66, 0.15);
+}
+
+.set *,
+.set *::before,
+.set *::after,
+.set-overlay *,
+.set-overlay *::before,
+.set-overlay *::after {
+  box-sizing: border-box;
+}
+
+.set-body {
+  flex: 1;
+  padding: 24px 20px 32px;
+}
+
+.set-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Header ---------- */
+.set-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.set-header h1 {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 500;
+  color: #14213d;
+}
+
+.set-round-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: #f1f2f5;
+  color: #0a1d42;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.set-round-btn:hover {
+  background: #e4e6ec;
+}
+.set-round-btn .set-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Groups ---------- */
+.set-group {
+  margin-bottom: 26px;
+}
+
+.set-group h2 {
+  font-size: 15px;
+  font-weight: 400;
+  color: #a3a8b3;
+  margin-bottom: 6px;
+}
+
+.set-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.set-group li {
+  border-bottom: 1px solid #f0f1f4;
+}
+.set-group li:last-child {
+  border-bottom: none;
+}
+
+/* a row can be a link or (for Language) a button */
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 17px 0;
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  color: #14213d;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.set-row:hover .set-row-label {
+  color: #1a63c9;
+}
+
+.set-row-label {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.set-row-value {
+  font-size: 15px;
+  color: #a3a8b3;
+}
+
+.set-chevron {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: #4b5563;
+  stroke-width: 1.8;
+}
+
+/* ---------- Bottom tab bar ---------- */
+.set-tabbar {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 8px 14px;
+  background: #f4f5f8;
+  border-top: 1px solid #e4e6ec;
+}
+
+.set-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0 4px;
+  font-size: 12px;
+  color: #8a8f98;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.set-tab:hover {
+  color: #1a63c9;
+}
+.set-tab.active {
+  color: #1a63c9;
+  font-weight: 600;
+}
+.set-tab.active::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, #f4d37d, #b8862a);
+}
+
+/* =====================================================
+   OVERLAYS (log out box + language sheet)
+   ===================================================== */
+.set-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 29, 66, 0.55);
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  color: #14213d;
+  animation: set-fade 0.2s ease;
+}
+.set-overlay.bottom {
+  align-items: flex-end;
+  padding: 0;
+}
+
+/* ---------- Log out dialog ---------- */
+.set-dialog {
+  width: 100%;
+  max-width: 340px;
+  padding: 28px 24px 22px;
+  border-radius: 22px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  animation: set-pop 0.22s ease;
+}
+
+.set-dialog-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eef2fb;
+  color: #0a1d42;
+}
+.set-dialog-icon .set-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.set-dialog h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0a1d42;
+  margin-bottom: 6px;
+}
+.set-dialog p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #5b6272;
+  margin-bottom: 22px;
+}
+
+.set-dialog-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.set-btn {
+  height: 46px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+}
+.set-btn:focus-visible {
+  outline: 3px solid #b88a2a;
+  outline-offset: 2px;
+}
+
+.set-btn.ghost {
+  background: #fff;
+  color: #0a1d42;
+  border: 1.5px solid #0a1d42;
+}
+.set-btn.ghost:hover {
+  background: #f1f4fb;
+}
+
+.set-btn.solid {
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #0a1d42, #163a73);
+}
+.set-btn.solid:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 29, 66, 0.35);
+}
+
+/* ---------- Language sheet ---------- */
+.set-sheet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  max-height: 84vh;
+  border-radius: 24px 24px 0 0;
+  background: #fff;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.25);
+  animation: set-slide 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.set-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 12px;
+}
+.set-sheet-head h2 {
+  font-size: 19px;
+  font-weight: 600;
+  color: #0a1d42;
+}
+
+.set-sheet-close {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: #f1f2f5;
+  color: #0a1d42;
+  cursor: pointer;
+}
+.set-sheet-close:hover {
+  background: #e4e6ec;
+}
+.set-sheet-close .set-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.set-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 20px 8px;
+  padding: 0 14px;
+  height: 46px;
+  border-radius: 12px;
+  background: #f1f2f5;
+  color: #8a8f98;
+}
+.set-search .set-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.set-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  color: #14213d;
+}
+.set-search:focus-within {
+  box-shadow: 0 0 0 2px #1a63c9;
+  background: #fff;
+}
+
+.set-lang-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.set-lang {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 20px;
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  color: #14213d;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.set-lang:hover {
+  background: #f6f7fa;
+}
+.set-lang.selected {
+  background: #eef4fd;
+}
+
+.set-lang-names {
+  flex: 1;
+  min-width: 0;
+}
+.set-lang-names strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+.set-lang-names small {
+  display: block;
+  margin-top: 1px;
+  font-size: 13px;
+  color: #8a8f98;
+}
+
+.set-lang-check {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke: #1a63c9;
+  stroke-width: 2.6;
+}
+
+.set-empty {
+  padding: 28px 20px 36px;
+  text-align: center;
+  font-size: 15px;
+  color: #8a8f98;
+}
+
+/* ---------- Animations ---------- */
+@keyframes set-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes set-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes set-slide {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .set-overlay,
+  .set-dialog,
+  .set-sheet {
+    animation: none;
+  }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 360px) {
+  .set-body {
+    padding: 20px 14px 28px;
+  }
+}

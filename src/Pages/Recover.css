@@ -1,0 +1,598 @@
+.rc {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: clip;
+  background: #fff;
+  color: #1a2233;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+}
+
+.rc *,
+.rc *::before,
+.rc *::after {
+  box-sizing: border-box;
+}
+
+.rc h1,
+.rc p {
+  margin: 0;
+}
+
+.rc-svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Top bar ---------- */
+.rc-top {
+  padding: 16px 32px;
+  border-bottom: 1px solid #e3e6ec;
+}
+
+.rc-brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rc-brand img {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+/* ---------- Layout ---------- */
+.rc-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px 72px;
+}
+
+.rc-wrap {
+  width: 100%;
+  max-width: 700px;
+}
+
+.rc-title {
+  margin-bottom: 28px;
+  text-align: center;
+  font-size: clamp(25px, 4.4vw, 38px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #0a1d42;
+}
+
+/* ---------- Card ---------- */
+.rc-card {
+  padding: 28px 24px 26px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(10, 29, 66, 0.08), 0 10px 32px rgba(10, 29, 66, 0.1);
+}
+
+.rc-lead {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #1a2233;
+}
+
+.rc-required {
+  margin: 22px 0 18px;
+  font-size: 13.5px;
+  color: #5b6577;
+}
+
+/* ---------- Fields ---------- */
+.rc-field {
+  margin-bottom: 22px;
+}
+
+.rc-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f1a30;
+}
+
+.rc-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 50px;
+  padding: 0 10px 0 14px;
+  border: 1px solid #5b6577;
+  border-radius: 4px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rc-input:hover {
+  border-color: #0a1d42;
+}
+
+.rc-input:focus-within {
+  border-color: #1a63c9;
+  box-shadow: 0 0 0 3px rgba(26, 99, 201, 0.22);
+}
+
+.rc-input input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #1a2233;
+}
+
+.rc-input input:disabled {
+  cursor: not-allowed;
+  color: #7b8497;
+}
+
+.rc-field.has-error .rc-input {
+  border-color: #c4122c;
+  box-shadow: 0 0 0 1px #c4122c;
+}
+
+.rc-error {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #c4122c;
+}
+
+/* ---------- Icon buttons and help ---------- */
+.rc-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #1a63c9;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.rc-icon-btn:hover {
+  background: #eaf1fb;
+}
+
+.rc-icon-btn:focus-visible {
+  outline: 3px solid #1a63c9;
+  outline-offset: 1px;
+}
+
+.rc-tip {
+  position: relative;
+  display: inline-flex;
+}
+
+.rc-tip-box {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: -6px;
+  z-index: 20;
+  width: min(300px, 78vw);
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #0a1d42;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+  box-shadow: 0 12px 28px rgba(10, 29, 66, 0.28);
+}
+
+.rc-tip-box::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  background: #0a1d42;
+  transform: rotate(45deg);
+}
+
+.rc-secure {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid #e3e6ec;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #4a5468;
+}
+
+.rc-secure .rc-svg {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: #b88a2a;
+}
+
+/* ---------- Buttons ---------- */
+.rc-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.rc-recovery-actions .rc-btn {
+  min-width: 128px;
+  height: 52px;
+  padding: 0 32px;
+}
+
+.rc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 112px;
+  height: 46px;
+  padding: 0 30px;
+  border: 1.5px solid #0a1d42;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.rc-btn.outline {
+  background: #fff;
+  color: #0a1d42;
+}
+
+.rc-btn.outline:hover:not(:disabled) {
+  background: #eef2fa;
+}
+
+.rc-btn.primary {
+  background: #0a1d42;
+  color: #fff;
+}
+
+.rc-btn.primary:hover:not(:disabled) {
+  background: #163a73;
+  border-color: #163a73;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 29, 66, 0.28);
+}
+
+.rc-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.rc-btn:focus-visible {
+  outline: 3px solid #1a63c9;
+  outline-offset: 3px;
+}
+
+.rc-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: rc-spin 0.8s linear infinite;
+}
+
+@keyframes rc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Done ---------- */
+.rc-done {
+  padding: 44px 32px 40px;
+  text-align: center;
+}
+
+.rc-done-icon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a1d42, #163a73);
+  color: #f4d37d;
+}
+
+.rc-done-icon .rc-svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2.6;
+}
+
+.rc-done h1 {
+  margin-bottom: 12px;
+  font-size: clamp(22px, 3.6vw, 28px);
+  font-weight: 500;
+  color: #0a1d42;
+}
+
+.rc-done p {
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #3b4558;
+}
+
+.rc-done .rc-muted {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #66708a;
+}
+
+/* ---------- Footer ---------- */
+.rc-foot {
+  padding: 20px 24px 28px;
+  border-top: 1px solid #e3e6ec;
+  text-align: center;
+  font-size: 12.5px;
+  color: #6b7590;
+}
+
+/* ---------- Server message, User ID box, password rules ---------- */
+.rc-alert {
+  margin-bottom: 18px;
+  padding: 13px 16px;
+  border: 1px solid #f0b7c0;
+  border-left: 4px solid #c4122c;
+  border-radius: 8px;
+  background: #fdf0f2;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #8a0f21;
+}
+
+.rc-userid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 20px 0 24px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #eef2fa;
+}
+
+.rc-userid span {
+  font-size: 13.5px;
+  color: #4a5468;
+}
+
+.rc-userid strong {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #0a1d42;
+  word-break: break-all;
+}
+
+.rc-rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rc-rules li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #66708a;
+}
+
+.rc-rules li.ok {
+  color: #1e7a45;
+}
+
+.rc-rule-dot {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: 1.5px solid #c3c9d6;
+  border-radius: 50%;
+}
+
+.rc-rules li.ok .rc-rule-dot {
+  border-color: #1e7a45;
+  background: #1e7a45;
+  color: #fff;
+}
+
+.rc-rule-dot .rc-svg {
+  width: 12px;
+  height: 12px;
+  stroke-width: 3.2;
+}
+
+.rc-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .rc-rules {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE: every screen size
+   ===================================================== */
+
+/* ---------- Large screens ---------- */
+@media (min-width: 1400px) {
+  .rc-main {
+    padding-top: 72px;
+  }
+  .rc-wrap {
+    max-width: 760px;
+  }
+  .rc-card {
+    padding: 36px 32px 32px;
+  }
+  .rc-lead {
+    font-size: 16.5px;
+  }
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width: 900px) {
+  .rc-top {
+    padding: 14px 24px;
+  }
+  .rc-main {
+    padding: 40px 20px 60px;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  .rc-top {
+    padding: 12px 16px;
+  }
+  .rc-brand img {
+    height: 34px;
+  }
+  .rc-main {
+    padding: 28px 14px 48px;
+  }
+  .rc-title {
+    margin-bottom: 20px;
+  }
+  .rc-card {
+    padding: 22px 18px 20px;
+    border-radius: 12px;
+  }
+  .rc-lead {
+    font-size: 15px;
+  }
+  .rc-actions {
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .rc-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 0 16px;
+  }
+  .rc-recovery-actions .rc-btn {
+    flex: 0 1 auto;
+    min-width: 128px;
+    padding: 0 28px;
+  }
+  .rc-done {
+    padding: 34px 20px 30px;
+  }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 400px) {
+  .rc-main {
+    padding: 22px 10px 40px;
+  }
+  .rc-card {
+    padding: 18px 14px 16px;
+  }
+  .rc-input {
+    padding-left: 12px;
+  }
+  .rc-field label {
+    font-size: 14.5px;
+  }
+  .rc-actions {
+    flex-direction: row;
+  }
+  .rc-btn {
+    width: auto;
+  }
+  .rc-recovery-actions .rc-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 16px;
+  }
+  .rc-tip-box {
+    right: -40px;
+  }
+  .rc-tip-box::before {
+    right: 50px;
+  }
+}
+
+/* ---------- Phones turned sideways ---------- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .rc-main {
+    padding-top: 20px;
+    padding-bottom: 36px;
+  }
+  .rc-title {
+    margin-bottom: 14px;
+  }
+}
+
+/* ---------- Touch screens ---------- */
+@media (hover: none) {
+  .rc-btn.primary:hover:not(:disabled) {
+    transform: none;
+    box-shadow: none;
+  }
+  .rc-icon-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ---------- Less motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .rc *,
+  .rc *::before,
+  .rc *::after {
+    transition: none !important;
+  }
+  .rc-spinner {
+    animation-duration: 2.5s;
+  }
+}

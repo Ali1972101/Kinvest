@@ -1,0 +1,108 @@
+.tc-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0d0d13;
+}
+
+.tc {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: #15151d;
+  color: #fff;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+.tc *,
+.tc *::before,
+.tc *::after {
+  box-sizing: border-box;
+}
+
+.tc-body {
+  padding: 24px 20px 48px;
+}
+
+.tc-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Header (stays in view while you scroll) ---------- */
+.tc-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  margin: -24px -20px 24px;
+  padding: 24px 20px 14px;
+  background: #15151d;
+}
+
+.tc-header h1 {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.tc-round-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #23232f;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tc-round-btn:hover {
+  background: #2f2f3e;
+}
+.tc-round-btn:focus-visible {
+  outline: 2px solid #f4d37d;
+  outline-offset: 2px;
+}
+
+/* ---------- Text ---------- */
+.tc-text p {
+  margin: 0 0 24px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #b4b6c4;
+}
+
+.tc-text .tc-updated {
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #7b7d8c;
+}
+
+.tc-num {
+  color: #fff;
+  font-weight: 500;
+}
+
+@media (max-width: 360px) {
+  .tc-body {
+    padding: 20px 14px 40px;
+  }
+  .tc-header {
+    margin: -20px -14px 20px;
+    padding: 20px 14px 12px;
+  }
+  .tc-text p {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: kinvest-backend
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: MAX_TRANSFER_USD
+        value: "100000000"
+      - key: MAX_TOPUP_USD
+        value: "100000000"
+      - key: TRANSFER_FEE_RATE
+        value: "0"
+      - key: ALLOW_DEMO_TOPUP
+        value: "false"

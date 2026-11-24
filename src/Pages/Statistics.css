@@ -1,0 +1,289 @@
+.st-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #e9ecf3;
+}
+
+.st {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: #fff;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  color: #14213d;
+  box-shadow: 0 0 60px rgba(10, 29, 66, 0.15);
+}
+
+.st *,
+.st *::before,
+.st *::after {
+  box-sizing: border-box;
+}
+
+.st-body {
+  flex: 1;
+  padding: 24px 20px 28px;
+}
+
+.st-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Header ---------- */
+.st-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.st-header h1 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #14213d;
+}
+
+.st-round-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: #f1f2f5;
+  color: #0a1d42;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.st-round-btn:hover {
+  background: #e4e6ec;
+}
+.st-round-btn .st-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Balance ---------- */
+.st-balance {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.st-balance p {
+  font-size: 18px;
+  color: #9aa0ab;
+  margin-bottom: 6px;
+}
+.st-balance h2 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #14213d;
+}
+
+/* ---------- Chart ---------- */
+.st-chart {
+  margin: 0 -20px 18px;
+}
+.st-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.st-guide {
+  stroke: #eceef3;
+  stroke-width: 1;
+  transition: stroke 0.3s;
+}
+.st-guide.on {
+  stroke: #d4d9e6;
+}
+
+.st-line {
+  fill: none;
+  stroke: #1a63c9;
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.st-marker {
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.st-marker circle {
+  fill: #fff;
+  stroke: #1a63c9;
+  stroke-width: 4;
+}
+
+/* ---------- Month pills ---------- */
+.st-months {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.st-month {
+  padding: 7px 13px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #9aa0ab;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.st-month:hover {
+  color: #1a63c9;
+}
+.st-month.active {
+  background: #1a63c9;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ---------- Transactions ---------- */
+.st-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.st-section-head h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #14213d;
+}
+.st-see-all {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a63c9;
+  text-decoration: none;
+}
+.st-see-all:hover {
+  text-decoration: underline;
+}
+
+.st-tx-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.st-tx {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.st-tx-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f1f2f5;
+  color: #0a1d42;
+}
+
+.st-tx-info {
+  flex: 1;
+  min-width: 0;
+}
+.st-tx-info strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+}
+.st-tx-info small {
+  font-size: 13px;
+  color: #8a8f98;
+}
+
+.st-tx-amount {
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.st-tx-amount.in {
+  color: #1a63c9;
+}
+
+/* ---------- Bottom tab bar ---------- */
+.st-tabbar {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 8px 14px;
+  background: #f4f5f8;
+  border-top: 1px solid #e4e6ec;
+}
+
+.st-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0 4px;
+  font-size: 12px;
+  color: #8a8f98;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.st-tab:hover {
+  color: #1a63c9;
+}
+.st-tab.active {
+  color: #1a63c9;
+  font-weight: 600;
+}
+.st-tab.active::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, #f4d37d, #b8862a);
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 360px) {
+  .st-body {
+    padding: 20px 14px 24px;
+  }
+  .st-chart {
+    margin: 0 -14px 18px;
+  }
+  .st-month {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .st-marker {
+    transition: none;
+  }
+}
+.st-empty {
+  padding: 22px 0;
+  font-size: 14px;
+  color: #8a8f98;
+}

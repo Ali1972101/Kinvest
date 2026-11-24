@@ -1,0 +1,794 @@
+/* ---------- HERO WRAPPER ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 56px;
+  align-items: start;
+  /* min-height: calc(100vh - 72px); */
+  padding: 24px 40px 56px 10px;
+  color: #fff;
+  background:
+    radial-gradient(900px 500px at 85% 0%, rgba(212, 168, 67, 0.18), transparent 60%),
+    linear-gradient(135deg, #061532 0%, #0a1d42 45%, #163a73 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* gold stripe in the top-left corner */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 8px;
+  background: linear-gradient(90deg, #f4d37d, #b8862a);
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+}
+
+/* ---------- LEFT: LOGIN ---------- */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.login-card {
+  background: #fff;
+  color: #1a1a1a;
+  border-radius: 0 14px 14px 0;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-title {
+  font-size: 24px;
+  color: #0a1d42;
+  margin-bottom: 4px;
+}
+.login-sub {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 22px;
+}
+
+.login-card label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0a1d42;
+  margin-bottom: 6px;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 15px;
+  border: 1px solid #8a8f98;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.login-card input:focus {
+  border-color: #b88a2a;
+  box-shadow: 0 0 0 3px rgba(184, 138, 42, 0.2);
+}
+
+.password-wrap {
+  position: relative;
+}
+.password-wrap input {
+  padding-right: 60px !important;
+}
+.show-btn {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: none;
+  border: none;
+  color: #163a73;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  color: #333 !important;
+  margin: 2px 0 22px;
+  cursor: pointer;
+}
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: #0a1d42;
+}
+
+/* ---------- Log in button ---------- */
+.login-btn {
+  height: 46px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0a1d42, #163a73);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+}
+.login-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 29, 66, 0.35);
+}
+.login-btn:disabled {
+  opacity: 0.8;
+  cursor: wait;
+}
+
+/* spinner inside the button */
+.login-btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: login-spin 0.8s linear infinite;
+}
+
+/* wrong email / password message */
+.login-error {
+  margin: -6px 0 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #c4122c;
+  background: #fdecee;
+  border-left: 3px solid #c4122c;
+  border-radius: 4px;
+}
+
+/* ---------- Full-screen loading page ---------- */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: rgba(255, 255, 255, 0.97);
+  animation: login-fade 0.25s ease;
+}
+
+.login-overlay-logo {
+  height: 56px;
+  width: auto;
+}
+
+.login-spinner {
+  width: 46px;
+  height: 46px;
+  border: 4px solid #e3e5ea;
+  border-top-color: #b88a2a;
+  border-right-color: #0a1d42;
+  border-radius: 50%;
+  animation: login-spin 0.9s linear infinite;
+}
+
+.login-overlay p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0a1d42;
+}
+
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes login-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-btn-spinner,
+  .login-spinner {
+    animation-duration: 2.5s;
+  }
+}
+
+.forgot {
+  align-self: center;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #163a73;
+}
+.forgot:hover {
+  color: #b88a2a;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 20px 0 16px;
+}
+
+/* "Don't have an account? Sign up" (renamed from .signup) */
+.signup-prompt {
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+}
+.signup-prompt a {
+  color: #b88a2a;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+}
+.signup-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Open an account pill */
+.open-account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  color: #0a1d42;
+  padding: 16px 20px;
+  border-radius: 0 14px 14px 0;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+.open-account:hover {
+  transform: translateX(4px);
+}
+.coin {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #f4d37d, #b8862a);
+}
+.open-text {
+  flex: 1;
+}
+.arrow {
+  color: #b88a2a;
+  font-size: 20px;
+}
+
+/* ---------- RIGHT: CARDS ---------- */
+.hero-right h1 {
+  font-size: 34px;
+  font-weight: 400;
+  margin: 8px 0 28px;
+  letter-spacing: 0.2px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat {
+  font-size: 78px;
+  font-weight: 300;
+  line-height: 1;
+}
+.stat sup {
+  font-size: 34px;
+  vertical-align: top;
+  position: relative;
+  top: 6px;
+  margin-left: 2px;
+}
+.stat-label {
+  font-size: 15px;
+  margin-top: 6px;
+}
+.no-fee {
+  font-size: 15px;
+  margin: 18px 0 12px;
+  color: #f4d37d;
+}
+
+/* ---------- CREDIT CARD VISUAL ---------- */
+.credit-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.586 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s;
+  color: #fff;
+}
+.credit-card:hover {
+  transform: translateY(-6px) rotate(-1deg);
+}
+
+/* layered stripes */
+.card-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* soft diagonal shine */
+.credit-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.22) 48%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* card colours */
+.credit-card.red {
+  background: linear-gradient(135deg, #e0283a 0%, #c41e2f 50%, #9c1220 100%);
+}
+.credit-card.silver {
+  background: linear-gradient(135deg, #d4d5d8 0%, #aeb0b5 55%, #8e9096 100%);
+}
+.credit-card.blue {
+  background: linear-gradient(135deg, #1a63c9 0%, #0f4399 50%, #082a6b 100%);
+}
+.credit-card.white {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f1f3 55%, #dcdce0 100%);
+  color: #6b6e75;
+}
+.credit-card.white .card-art polygon {
+  fill: rgba(0, 0, 0, 0.05);
+}
+
+/* logo in the middle */
+.card-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 52%;
+  height: auto;
+  z-index: 1;
+  filter: brightness(0.5);
+  transition: filter 0.1s ease;
+}
+
+/* chip (left, middle) */
+.chip {
+  position: absolute;
+  left: 6%;
+  top: 38%;
+  width: 14%;
+  aspect-ratio: 1.3 / 1;
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(0, 0, 0, 0.28) 49%, rgba(0, 0, 0, 0.28) 51%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(0, 0, 0, 0.28) 49%, rgba(0, 0, 0, 0.28) 51%, transparent 52%),
+    linear-gradient(135deg, #f6f6f6, #b4b4b4);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* contactless (top right) */
+.nfc {
+  position: absolute;
+  right: 5%;
+  top: 8%;
+  width: 6%;
+  min-width: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+/* recycle icon (bottom left) */
+.recycle {
+  position: absolute;
+  left: 5%;
+  bottom: 7%;
+  width: 9%;
+  min-width: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* Visa / Mastercard (bottom right) */
+.net {
+  position: absolute;
+  right: 5%;
+  bottom: 7%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.net.visa svg {
+  width: 52px;
+  height: auto;
+  color: #fff;
+}
+.net.visa span {
+  font-size: 8px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-top: -2px;
+}
+.net.mc svg {
+  width: 44px;
+  height: auto;
+}
+
+/* "Limited-time offer" ribbon */
+.badge {
+  position: absolute;
+  top: 9%;
+  left: 0;
+  padding: 5px 26px 5px 10px;
+  background: #0a2f7a;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  z-index: 2;
+}
+
+/* ---------- Under the card ---------- */
+.card-name {
+  margin: 22px 0 10px;
+  font-size: 16px;
+}
+
+.offer-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 8px;
+  background: #fff;
+  color: #0a1d42;
+  border-radius: 10px;
+  text-decoration: underline;
+  font-size: 15px;
+  line-height: 1.25;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.offer-btn:hover {
+  border-color: #d4a843;
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVE (hero) ---------- */
+@media (max-width: 1100px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+  .net.visa svg { width: 60px; }
+  .net.mc svg { width: 50px; }
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 24px 20px 48px;
+  }
+  .login-card,
+  .open-account {
+    border-radius: 14px;
+  }
+  .hero-left {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .hero-right h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat {
+    font-size: 64px;
+  }
+}
+
+/* =====================================================
+   FINANCIAL GOALS
+   ===================================================== */
+.goals {
+  background: #fff;
+  padding: 48px 72px 56px;
+  text-align: center;
+}
+
+.goals h2 {
+  font-size: 38px;
+  font-weight: 400;
+  color: #0a1d42;
+  margin-bottom: 14px;
+}
+
+.goals-sub {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+/* ---------- Desktop grid ---------- */
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.goal-card {
+  position: relative;
+  display: block;
+  height: 362px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.goal-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.goal-card:hover img {
+  transform: scale(1.05);
+}
+
+/* caption box sits on top of the photo */
+.goal-caption {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 50px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #f4f4f4;
+  text-align: left;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.goal-card:hover .goal-caption {
+  border-bottom-color: #b88a2a;
+  transform: translateY(-4px);
+}
+
+.goal-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  fill: none;
+  stroke: #0a1d42;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.goal-caption span {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #163a73;
+}
+.goal-card:hover .goal-caption span {
+  text-decoration: underline;
+  color: #0a1d42;
+}
+
+/* arrows and dots are hidden on desktop */
+.goals-controls {
+  display: none;
+}
+
+/* ---------- Small screens: one-at-a-time carousel ---------- */
+@media (max-width: 900px) {
+  .goals {
+    padding: 36px 0 40px;
+  }
+  .goals h2,
+  .goals-sub {
+    padding: 0 20px;
+  }
+  .goals h2 {
+    font-size: 30px;
+  }
+  .goals-sub {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  /* the grid becomes a swipeable track */
+  .goals-grid {
+    display: flex;
+    max-width: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .goals-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* each card: photo on the left, light panel on the right */
+  .goal-card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    height: 350px;
+  }
+  .goal-card img {
+    width: 45%;
+    flex-shrink: 0;
+  }
+  .goal-card:hover img {
+    transform: none;
+  }
+
+  .goal-caption {
+    position: static;
+    flex: 1;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background: #f4f4f4;
+    border-bottom: none;
+  }
+  .goal-card:hover .goal-caption {
+    transform: none;
+  }
+  .goal-icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 0;
+  }
+  .goal-caption span {
+    font-size: 18px;
+  }
+
+  /* arrows + dots */
+  .goals-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 26px;
+  }
+
+  .ctrl-btn {
+    width: 50px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+  .ctrl-btn.boxed {
+    border-color: #163a73;
+  }
+  .ctrl-btn:hover {
+    background: #f4f4f4;
+  }
+
+  .chev {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #163a73;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #9a9a9a;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .dot.active {
+    background: #0a1d42;
+    transform: scale(1.25);
+  }
+}
+
+/* ---------- Phones: photo on top, text below ---------- */
+@media (max-width: 520px) {
+  .goal-card {
+    flex-direction: column;
+    height: auto;
+  }
+  .goal-card img {
+    width: 100%;
+    height: 240px;
+  }
+  .goal-caption {
+    min-height: 130px;
+    padding: 20px;
+  }
+  .goal-caption span {
+    font-size: 17px;
+  }
+}

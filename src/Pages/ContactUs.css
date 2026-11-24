@@ -1,0 +1,447 @@
+/* ---------- Banner ---------- */
+.ct-hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 300px;
+  background-color: #0a1d42;
+  background-size: cover;
+  background-position: center 25%;
+  color: #fff;
+  text-align: center;
+}
+
+.ct-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(6, 21, 50, 0.88) 0%, rgba(10, 29, 66, 0.72) 55%, rgba(22, 58, 115, 0.6) 100%);
+}
+
+/* gold line along the bottom edge */
+.ct-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f4d37d, #b8862a);
+}
+
+.ct-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 48px 20px;
+}
+
+.ct-crumbs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.ct-crumbs a {
+  color: #f4d37d;
+  text-decoration: none;
+}
+.ct-crumbs a:hover {
+  text-decoration: underline;
+}
+
+.ct-hero h1 {
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.ct-hero p {
+  max-width: 520px;
+  margin: 12px auto 0;
+  font-size: 17px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------- Content ---------- */
+.ct-main {
+  background: #f5f6fa;
+  padding: 56px 24px 72px;
+}
+
+.ct-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: 32px;
+  align-items: start;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ---------- Form card ---------- */
+.ct-card {
+  background: #fff;
+  border-radius: 14px;
+  border-top: 5px solid #b88a2a;
+  padding: 36px 40px 40px;
+  box-shadow: 0 14px 40px rgba(10, 29, 66, 0.08);
+}
+
+.ct-card h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #0a1d42;
+  margin-bottom: 20px;
+}
+
+/* security notice */
+.ct-notice {
+  display: flex;
+  gap: 14px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  border-left: 4px solid #b88a2a;
+  border-radius: 8px;
+  background: #fbf6e9;
+}
+.ct-notice p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #3a3a3a;
+}
+.ct-notice-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #8a6414;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ct-required-note {
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: #666;
+}
+.ct-required-note span {
+  color: #c4122c;
+  font-weight: 700;
+}
+
+/* ---------- Fields ---------- */
+.ct-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ct-field {
+  margin-bottom: 22px;
+}
+
+.ct-field label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0a1d42;
+}
+
+.ct-star {
+  color: #c4122c;
+}
+
+.ct-field input,
+.ct-field textarea {
+  width: 100%;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 15px;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #aab0bb;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ct-field input {
+  height: 46px;
+}
+.ct-field textarea {
+  padding: 12px 14px;
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.ct-field input:focus,
+.ct-field textarea:focus {
+  border-color: #b88a2a;
+  box-shadow: 0 0 0 3px rgba(184, 138, 42, 0.22);
+}
+
+.ct-field.has-error input {
+  border-color: #c4122c;
+}
+
+.ct-error {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #c4122c;
+}
+
+.ct-counter {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 12px;
+  color: #8a8f98;
+}
+
+/* hidden spam trap (kept off-screen, not display:none) */
+.ct-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Buttons ---------- */
+.ct-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 150px;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s, opacity 0.2s;
+}
+.ct-btn:focus-visible {
+  outline: 3px solid #b88a2a;
+  outline-offset: 2px;
+}
+
+.ct-btn.solid {
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #0a1d42, #163a73);
+}
+.ct-btn.solid:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 29, 66, 0.35);
+}
+.ct-btn.solid:disabled {
+  opacity: 0.8;
+  cursor: wait;
+}
+
+.ct-btn.ghost {
+  color: #0a1d42;
+  background: #fff;
+  border: 1.5px solid #0a1d42;
+}
+.ct-btn.ghost:hover {
+  background: #f1f4fb;
+}
+
+.ct-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: ct-spin 0.8s linear infinite;
+}
+@keyframes ct-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Success ---------- */
+.ct-success {
+  padding: 40px 10px;
+  text-align: center;
+}
+.ct-success-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4d37d, #b8862a);
+}
+.ct-success-icon .ct-icon {
+  width: 34px;
+  height: 34px;
+  stroke: #0a1d42;
+  stroke-width: 3;
+}
+.ct-success p {
+  max-width: 420px;
+  margin: 0 auto 26px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.ct-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Side panel ---------- */
+.ct-aside {
+  padding: 32px 28px;
+  border-radius: 14px;
+  color: #fff;
+  background:
+    radial-gradient(500px 300px at 90% 0%, rgba(212, 168, 67, 0.18), transparent 60%),
+    linear-gradient(135deg, #061532 0%, #0a1d42 55%, #163a73 100%);
+  box-shadow: 0 14px 40px rgba(10, 29, 66, 0.2);
+}
+
+.ct-aside h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.ct-aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 22px;
+}
+
+.ct-detail {
+  display: flex;
+  gap: 16px;
+}
+
+.ct-detail-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f4d37d;
+}
+
+.ct-detail h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.ct-detail p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .ct-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ct-hero {
+    min-height: 230px;
+  }
+  .ct-hero-inner {
+    padding: 36px 16px;
+  }
+  .ct-main {
+    padding: 32px 14px 48px;
+  }
+  .ct-card {
+    padding: 26px 20px 28px;
+  }
+  .ct-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .ct-btn.solid {
+    width: 100%;
+  }
+  .ct-aside {
+    padding: 26px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-spinner {
+    animation-duration: 2.5s;
+  }
+}
+
+/* ---------- Back button (phones only) ---------- */
+.ct-back {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .ct-back {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .ct-back:hover {
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  .ct-back:active {
+    transform: scale(0.94);
+  }
+
+  .ct-back:focus-visible {
+    outline: 3px solid #f4d37d;
+    outline-offset: 2px;
+  }
+
+  .ct-back svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

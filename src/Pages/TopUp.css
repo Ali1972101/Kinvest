@@ -1,0 +1,523 @@
+.tu-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0d0d13;
+}
+
+.tu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: #15151d;
+  color: #fff;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+.tu *,
+.tu *::before,
+.tu *::after {
+  box-sizing: border-box;
+}
+
+.tu-body {
+  flex: 1;
+  padding: 24px 20px 24px;
+}
+
+.tu-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Header ---------- */
+.tu-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.tu-header h1 {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 500;
+}
+.tu-round-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #23232f;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tu-round-btn:hover {
+  background: #2f2f3e;
+}
+.tu-round-btn:focus-visible {
+  outline: 2px solid #f4d37d;
+  outline-offset: 2px;
+}
+.tu-round-btn .tu-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Method tabs ---------- */
+.tu-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 24px;
+  padding: 4px;
+  border-radius: 14px;
+  background: #1d1d28;
+}
+.tu-tabs button {
+  height: 42px;
+  background: transparent;
+  border: none;
+  border-radius: 11px;
+  color: #9a9cab;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tu-tabs button:hover {
+  color: #fff;
+}
+.tu-tabs button.active {
+  background: #2f7bff;
+  color: #fff;
+}
+.tu-tabs button:focus-visible {
+  outline: 2px solid #f4d37d;
+  outline-offset: 2px;
+}
+
+/* ---------- Amount ---------- */
+.tu-balance {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #9a9cab;
+}
+.tu-balance strong {
+  margin-left: 6px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.tu-amount {
+  margin-bottom: 14px;
+}
+.tu-amount label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #9a9cab;
+}
+.tu-amount-input {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2c2d39;
+  transition: border-color 0.2s;
+}
+.tu-amount-input:focus-within {
+  border-bottom-color: #2f7bff;
+}
+.tu-amount-input span {
+  font-size: 34px;
+  font-weight: 500;
+  color: #9a9cab;
+}
+.tu-amount-input input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 34px;
+  font-weight: 500;
+  color: #fff;
+}
+.tu-amount-input input::placeholder {
+  color: #4a4c5c;
+}
+.tu-amount.has-error .tu-amount-input {
+  border-bottom-color: #ff5c7a;
+}
+.tu-error {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #ff7d95;
+}
+
+.tu-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.tu-chips button {
+  height: 40px;
+  background: #1d1d28;
+  border: 1.5px solid #2c2d39;
+  border-radius: 999px;
+  color: #cdd0de;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.tu-chips button:hover {
+  border-color: #3e4054;
+}
+.tu-chips button.active {
+  background: #1b2742;
+  border-color: #2f7bff;
+  color: #fff;
+}
+.tu-chips button:focus-visible {
+  outline: 2px solid #f4d37d;
+  outline-offset: 2px;
+}
+
+/* ---------- Saved card ---------- */
+.tu-card-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #1d1d28;
+}
+.tu-card-row > div {
+  flex: 1;
+  min-width: 0;
+}
+.tu-card-row strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+.tu-card-row small {
+  font-size: 12px;
+  color: #8b8d9b;
+}
+.tu-card-row a {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5b9bff;
+  text-decoration: none;
+}
+.tu-card-row a:hover {
+  text-decoration: underline;
+}
+
+.tu-mc {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.tu-mc i {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.tu-mc .red {
+  background: #eb001b;
+}
+.tu-mc .orange {
+  margin-left: -9px;
+  background: #f79e1b;
+  opacity: 0.95;
+}
+
+/* ---------- Quote and summary ---------- */
+.tu-quote,
+.tu-summary {
+  margin: 0 0 16px;
+  padding: 4px 16px;
+  border-radius: 14px;
+  background: #1d1d28;
+}
+.tu-quote > div,
+.tu-summary > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #2a2b38;
+  font-size: 14px;
+}
+.tu-quote > div:last-child,
+.tu-summary > div:last-child {
+  border-bottom: none;
+}
+.tu-quote dt,
+.tu-summary dt {
+  color: #9a9cab;
+}
+.tu-quote dd,
+.tu-summary dd {
+  margin: 0;
+  text-align: right;
+}
+.tu-quote .total dd {
+  font-weight: 600;
+}
+.tu-quote .receive {
+  margin: 0 -16px;
+  padding: 14px 16px;
+  border-radius: 0 0 14px 14px;
+  background: #1b2742;
+  border-bottom: none;
+}
+.tu-quote .receive dt {
+  color: #cdd8f3;
+}
+.tu-quote .receive dd {
+  font-size: 17px;
+  font-weight: 600;
+}
+.tu-summary dd.mono {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 13px;
+}
+
+.tu-review-title {
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.tu-fineprint {
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #7b7d8c;
+}
+.tu-secure {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #8b8d9b;
+}
+.tu-secure .tu-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  stroke: #5fd9a0;
+}
+
+/* ---------- Bank transfer ---------- */
+.tu-intro {
+  margin-bottom: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #9a9cab;
+}
+.tu-bank {
+  margin: 0 0 16px;
+  padding: 4px 16px;
+  border-radius: 16px;
+  background: #1d1d28;
+}
+.tu-bank-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #2a2b38;
+}
+.tu-bank-row:last-child {
+  border-bottom: none;
+}
+.tu-bank-row > div {
+  min-width: 0;
+}
+.tu-bank-row dt {
+  margin-bottom: 3px;
+  font-size: 12px;
+  color: #8b8d9b;
+}
+.tu-bank-row dd {
+  margin: 0;
+  font-size: 16px;
+  word-break: break-word;
+}
+.tu-bank-row dd.mono {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 15px;
+}
+.tu-bank-row button {
+  flex-shrink: 0;
+  min-width: 68px;
+  height: 34px;
+  padding: 0 12px;
+  background: #272833;
+  border: none;
+  border-radius: 999px;
+  color: #cdd8f3;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tu-bank-row button:hover {
+  background: #323344;
+}
+.tu-bank-row button.copied {
+  background: rgba(46, 204, 139, 0.16);
+  color: #5fd9a0;
+}
+.tu-bank-row button:focus-visible {
+  outline: 2px solid #f4d37d;
+  outline-offset: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.tu-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding: 14px 20px 22px;
+  background: linear-gradient(to top, #15151d 70%, rgba(21, 21, 29, 0));
+}
+.tu-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0a62ff, #2f7bff);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+}
+.tu-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(10, 98, 255, 0.45);
+}
+.tu-primary:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.tu-primary:focus-visible {
+  outline: 3px solid #f4d37d;
+  outline-offset: 2px;
+}
+.tu-primary.link {
+  margin-top: 22px;
+}
+
+/* ---------- Done ---------- */
+.tu-done {
+  padding: 8px 0 24px;
+  text-align: center;
+}
+.tu-done-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f4d37d, #b8862a);
+}
+.tu-done-icon .tu-icon {
+  width: 34px;
+  height: 34px;
+  stroke: #0a1d42;
+  stroke-width: 3;
+}
+.tu-done h2 {
+  margin-bottom: 6px;
+  font-size: 22px;
+  font-weight: 600;
+}
+.tu-done > p {
+  margin-bottom: 22px;
+  font-size: 15px;
+  color: #9a9cab;
+}
+.tu-done > p strong {
+  color: #fff;
+}
+.tu-done .tu-summary {
+  text-align: left;
+}
+
+/* ---------- Processing overlay ---------- */
+.tu-sending {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: rgba(13, 13, 19, 0.92);
+}
+.tu-sending p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.tu-spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid #2c2d39;
+  border-top-color: #2f7bff;
+  border-radius: 50%;
+  animation: tu-spin 0.9s linear infinite;
+}
+@keyframes tu-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tu-spinner {
+    animation-duration: 2.5s;
+  }
+}
+
+@media (max-width: 360px) {
+  .tu-body {
+    padding: 20px 14px 20px;
+  }
+  .tu-chips {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,334 @@
+.la {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  color: #1a2233;
+  background: #f4f5f8;
+}
+
+.la *,
+.la *::before,
+.la *::after {
+  box-sizing: border-box;
+}
+
+.la h1,
+.la h2,
+.la p,
+.la ul {
+  margin: 0;
+}
+
+.la-main {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 64px 20px 80px;
+}
+
+.la-card {
+  width: 100%;
+  max-width: 580px;
+  padding: 48px 44px 36px;
+  border: 1px solid #e0e4ec;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(10, 29, 66, 0.12);
+  text-align: center;
+}
+
+.la-lock {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a1d42, #163a73);
+  box-shadow: 0 8px 20px rgba(10, 29, 66, 0.3);
+}
+
+.la-lock svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: #f4d37d;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.la-card h1 {
+  font-size: clamp(23px, 5vw, 30px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #0a1d42;
+}
+
+.la-lead {
+  max-width: 440px;
+  margin: 14px auto 0;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: #4a5468;
+}
+
+.la-chip {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #eaeff9;
+  font-size: 14px;
+  color: #26324a;
+}
+
+.la-chip strong {
+  color: #0a1d42;
+}
+
+.la-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.la-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  height: 48px;
+  padding: 0 28px;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.la-btn.primary {
+  background: #0a1d42;
+  color: #fff;
+}
+
+.la-btn.primary:hover {
+  background: #163a73;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 29, 66, 0.28);
+}
+
+.la-btn.outline {
+  border-color: #0a1d42;
+  background: #fff;
+  color: #0a1d42;
+}
+
+.la-btn.outline:hover {
+  background: #0a1d42;
+  color: #fff;
+}
+
+.la-btn.ghost {
+  border-color: #c3c9d6;
+  background: #fff;
+  color: #0a1d42;
+}
+
+.la-btn.ghost:hover {
+  background: #f4f5f8;
+}
+
+.la-btn:focus-visible,
+.la-back:focus-visible {
+  outline: 3px solid #1a63c9;
+  outline-offset: 3px;
+}
+
+.la-small {
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #66708a;
+}
+
+.la-need {
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid #e3e6ec;
+  text-align: left;
+}
+
+.la-need h2 {
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #0a1d42;
+}
+
+.la-need ul {
+  display: grid;
+  gap: 11px;
+  padding: 0;
+  list-style: none;
+}
+
+.la-need li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #26324a;
+}
+
+.la-need li svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  padding: 3px;
+  border-radius: 50%;
+  background: #e5f3ea;
+  fill: none;
+  stroke: #1e8a4c;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.la-back {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1a63c9;
+  text-decoration: none;
+}
+
+.la-back:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   RESPONSIVE: every screen size
+   ===================================================== */
+
+/* ---------- Large screens ---------- */
+@media (min-width: 1400px) {
+  .la-main {
+    padding-top: 88px;
+  }
+  .la-card {
+    max-width: 640px;
+    padding: 56px 52px 42px;
+  }
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width: 900px) {
+  .la-main {
+    padding: 48px 20px 64px;
+  }
+}
+
+/* ---------- Large phones ---------- */
+@media (max-width: 640px) {
+  .la-main {
+    padding: 32px 14px 56px;
+  }
+  .la-card {
+    padding: 38px 24px 30px;
+    border-radius: 16px;
+  }
+  .la-lead {
+    font-size: 16px;
+  }
+  .la-btn {
+    width: 100%;
+    min-width: 0;
+  }
+  .la-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 400px) {
+  .la-main {
+    padding: 20px 10px 44px;
+  }
+  .la-card {
+    padding: 30px 18px 24px;
+  }
+  .la-lock {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 18px;
+  }
+  .la-lock svg {
+    width: 28px;
+    height: 28px;
+  }
+  .la-need li {
+    font-size: 14px;
+  }
+  .la-chip {
+    font-size: 13px;
+  }
+}
+
+/* ---------- Phones turned sideways ---------- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .la-main {
+    padding: 20px 14px 36px;
+  }
+  .la-card {
+    padding: 28px 28px 24px;
+  }
+  .la-lock {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 14px;
+  }
+  .la-actions {
+    flex-direction: row;
+    margin-top: 20px;
+  }
+  .la-btn {
+    width: auto;
+    min-width: 150px;
+  }
+}
+
+/* ---------- Touch screens ---------- */
+@media (hover: none) {
+  .la-btn.primary:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .la-back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* ---------- Less motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .la *,
+  .la *::before,
+  .la *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

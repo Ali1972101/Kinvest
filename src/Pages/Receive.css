@@ -1,0 +1,224 @@
+.rc-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0d0d13;
+}
+
+.rc {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  background: #15151d;
+  color: #fff;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+.rc *,
+.rc *::before,
+.rc *::after {
+  box-sizing: border-box;
+}
+
+.rc-body {
+  padding: 24px 20px 40px;
+}
+
+.rc-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.rc-header h1 {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 500;
+}
+.rc-round-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #23232f;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.rc-round-btn:hover {
+  background: #2f2f3e;
+}
+.rc-round-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rc-intro {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #9a9cab;
+}
+
+/* ---------- Tabs ---------- */
+.rc-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding: 4px;
+  border-radius: 14px;
+  background: #1d1d28;
+}
+.rc-tabs button {
+  height: 42px;
+  background: transparent;
+  border: none;
+  border-radius: 11px;
+  color: #9a9cab;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.rc-tabs button:hover {
+  color: #fff;
+}
+.rc-tabs button.active {
+  background: #2f7bff;
+  color: #fff;
+}
+.rc-tabs button:focus-visible {
+  outline: 2px solid #f4d37d;
+  outline-offset: 2px;
+}
+
+/* ---------- Details ---------- */
+.rc-card {
+  margin: 0 0 16px;
+  padding: 4px 16px;
+  border-radius: 16px;
+  background: #1d1d28;
+}
+.rc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #2a2b38;
+}
+.rc-row:last-child {
+  border-bottom: none;
+}
+.rc-row > div {
+  min-width: 0;
+}
+.rc-row dt {
+  margin-bottom: 3px;
+  font-size: 12px;
+  color: #8b8d9b;
+}
+.rc-row dd {
+  margin: 0;
+  font-size: 16px;
+  word-break: break-word;
+}
+.rc-row dd.mono {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+.rc-copy {
+  flex-shrink: 0;
+  min-width: 68px;
+  height: 34px;
+  padding: 0 12px;
+  background: #272833;
+  border: none;
+  border-radius: 999px;
+  color: #cdd8f3;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.rc-copy:hover {
+  background: #323344;
+}
+.rc-copy.copied {
+  background: rgba(46, 204, 139, 0.16);
+  color: #5fd9a0;
+}
+.rc-copy:focus-visible {
+  outline: 2px solid #f4d37d;
+  outline-offset: 2px;
+}
+
+.rc-share {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0a62ff, #2f7bff);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.rc-share:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(10, 98, 255, 0.45);
+}
+.rc-share:focus-visible {
+  outline: 3px solid #f4d37d;
+  outline-offset: 2px;
+}
+
+.rc-note {
+  margin: 16px 2px 20px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #9a9cab;
+}
+
+.rc-safe {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #241f12;
+  border: 1px solid #4a3d16;
+}
+.rc-safe svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: #f4d37d;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.rc-safe p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #e8dcae;
+}
+
+@media (max-width: 360px) {
+  .rc-body {
+    padding: 20px 14px 32px;
+  }
+}

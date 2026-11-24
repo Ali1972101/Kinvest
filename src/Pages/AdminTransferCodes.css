@@ -1,0 +1,235 @@
+/* Cost of Transfer / Transfer Access Code panel inside the admin customer drawer */
+
+.atc-intro {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #6b7280;
+}
+
+.atc-card {
+  margin-bottom: 12px;
+  padding: 16px;
+  border: 1.5px solid #dfe4ee;
+  border-radius: 14px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.atc-card.on {
+  border-color: #0a1d42;
+  box-shadow: 0 6px 20px rgba(10, 29, 66, 0.08);
+}
+
+.atc-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+.atc-head h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0a1d42;
+}
+.atc-head p {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+.atc-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: #eceff5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #3c4a68;
+  vertical-align: 1px;
+}
+
+/* on / off switch */
+.atc-switch {
+  position: relative;
+  flex: none;
+  width: 48px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: #c9cfdc;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.atc-switch span {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+.atc-switch.on {
+  background: #0a1d42;
+}
+.atc-switch.on span {
+  transform: translateX(20px);
+}
+.atc-switch:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.atc-switch:focus-visible,
+.atc-icon:focus-visible,
+.atc-link:focus-visible {
+  outline: 3px solid rgba(10, 29, 66, 0.35);
+  outline-offset: 2px;
+}
+
+.atc-state {
+  margin: 12px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #8a93a6;
+}
+.atc-state.on {
+  color: #0f8a55;
+}
+
+/* the code itself */
+.atc-code-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.atc-code {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px dashed #b7bfd0;
+  border-radius: 10px;
+  background: #f6f8fc;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #0a1d42;
+  user-select: all;
+}
+.atc-code.hidden {
+  color: #8a93a6;
+  user-select: none;
+}
+.atc-code.missing {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #b42318;
+  user-select: none;
+}
+
+.atc-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid #c9cfdc;
+  border-radius: 10px;
+  background: #fff;
+  color: #0a1d42;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.atc-icon:hover {
+  border-color: #0a1d42;
+  background: #f3f5f9;
+}
+.atc-icon svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.atc-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.atc-foot small {
+  font-size: 12px;
+  color: #8a93a6;
+}
+
+.atc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0a1d42;
+  cursor: pointer;
+}
+.atc-link:hover:not(:disabled) {
+  background: #eceff5;
+}
+.atc-link:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.atc-link.danger {
+  color: #b42318;
+}
+.atc-link svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.atc-confirm {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 12.5px;
+  color: #b42318;
+}
+
+@media (max-width: 420px) {
+  .atc-code {
+    font-size: 17px;
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atc-card,
+  .atc-switch,
+  .atc-switch span {
+    transition: none;
+  }
+}
