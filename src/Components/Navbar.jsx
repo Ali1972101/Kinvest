@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import "./Navbar.css";
-import logo from "../assets/Images/logo.png";
+import logo from "../assets/Images/Logo.png";
 
 // links with a "to" open a real page; the others are placeholders for now
 const links = [

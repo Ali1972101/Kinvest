@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import "./OpenAccount.css";
 import Navbar from "../Components/Navbar";
-import logo from "../assets/Images/logo.png";
+import logo from "../assets/Images/Logo.png";
 
 import img1 from "../assets/Images/account-1.png"; // checking & savings
 import img2 from "../assets/Images/account-2.png"; // credit cards

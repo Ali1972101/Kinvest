@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import Navbar from "../Components/Navbar";
-import logo from "../assets/Images/logo.png";
+import logo from "../assets/Images/Logo.png";
 import img1 from "../assets/Images/goal-1.jpg";
 import img2 from "../assets/Images/goal-2.jpg";
 import img3 from "../assets/Images/goal-3.jpg";

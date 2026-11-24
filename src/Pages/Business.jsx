@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router";
 import "./Business.css";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import logo from "../assets/Images/logo.png";
+import logo from "../assets/Images/Logo.png";
 import { loginUser } from "../Components/userStore";
 
 import checkingImg from "../assets/Images/business-checking.jpg";

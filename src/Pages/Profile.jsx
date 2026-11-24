@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Navigate } from "react-router";
 import { fullName, useAvatar, useCurrentUser } from "../Components/userStore";
-import "./Profile.css";
+import "./profile.css";
 
 /* ---------- Icons ---------- */
 const paths = {
