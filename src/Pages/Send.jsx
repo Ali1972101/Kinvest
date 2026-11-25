@@ -791,7 +791,7 @@ const Send = () => {
                 </Field>
               )}
 
-              <Field id="note" label="Note (optional)">
+              <Field id="note" label="Description (optional)">
                 <div className="sd-input">
                   <Icon name="note" className="sd-field-icon" />
                   <input
@@ -870,7 +870,7 @@ const Send = () => {
                 {form.note.trim() && (
                   <div>
                     <dt>Note</dt>
-                    <dd>{form.note.trim()}</dd>
+                    <dd>{form.note.trim()}</dd> 
                   </div>
                 )}
               </dl>
