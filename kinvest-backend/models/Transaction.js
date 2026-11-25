@@ -11,18 +11,20 @@ const transactionSchema = new mongoose.Schema(
     icon: { type: String, default: "transfer" },
     tone: { type: String, default: "plain" },
     reference: { type: String, trim: true, maxlength: 80, default: "" },
-    // where a domestic transfer was sent: the recipient's bank, routing number and the bank's address
+    // where a transfer was sent: the recipient's bank, routing number or SWIFT code, and the bank's address
     details: {
       type: new mongoose.Schema(
         {
           bank: { type: String, trim: true, maxlength: 60 },
           routingNumber: { type: String, trim: true, maxlength: 9 },
+          swift: { type: String, trim: true, maxlength: 11 },
+          country: { type: String, trim: true, maxlength: 2 },
           accountLast4: { type: String, trim: true, maxlength: 4 },
           bankAddress: {
             line1: { type: String, trim: true, maxlength: 80 },
             city: { type: String, trim: true, maxlength: 60 },
-            state: { type: String, trim: true, maxlength: 2 },
-            zip: { type: String, trim: true, maxlength: 10 },
+            state: { type: String, trim: true, maxlength: 60 },
+            zip: { type: String, trim: true, maxlength: 12 },
           },
         },
         { _id: false }

@@ -142,6 +142,9 @@ const validateRecipient = (f, type, country) => {
       e.account = "Enter the recipient's account number";
     }
     if (!isValidSwift(f.swift)) e.swift = "Enter a valid SWIFT/BIC code (8 or 11 characters)";
+    if (f.bankAddress.trim().length < 5) e.bankAddress = "Enter the bank's street address";
+    if (f.bankCity.trim().length < 2) e.bankCity = "Enter the bank's city";
+    if (f.bankZip.trim().length < 3) e.bankZip = "Enter the bank's postal code";
   }
   return e;
 };
@@ -316,6 +319,9 @@ const Send = () => {
   const handleBankAddress = (e) => setField("bankAddress", e.target.value.slice(0, 80));
   const handleBankCity = (e) =>
     setField("bankCity", e.target.value.replace(/[^\p{L} .'-]/gu, "").slice(0, 60));
+  const handleBankRegion = (e) => setField("bankState", e.target.value.replace(/[^\p{L} .'-]/gu, "").slice(0, 60));
+  const handleBankPostal = (e) =>
+    setField("bankZip", e.target.value.replace(/[^A-Za-z0-9 -]/g, "").toUpperCase().slice(0, 12));
   const handleBankZip = (e) => setField("bankZip", e.target.value.replace(/[^\d-]/g, "").slice(0, 10));
   const handleSwift = (e) =>
     setField("swift", e.target.value.replace(/[^A-Za-z0-9]/g, "").toUpperCase().slice(0, 11));
@@ -373,21 +379,20 @@ const Send = () => {
   /* ----- the checks before the money moves: admin codes -> emailed code -> password ----- */
   const transferInfo = () => ({ amount: quote.amount, type, recipient: form.name.trim() });
 
-  // where a domestic transfer goes: the recipient's bank, routing number and the bank's address
-  const domesticDetails = () =>
-    type === "domestic"
-      ? {
-          bank: form.bank.trim(),
-          routingNumber: form.routing,
-          accountNumber: form.account,
-          bankAddress: {
-            line1: form.bankAddress.trim(),
-            city: form.bankCity.trim(),
-            state: form.bankState,
-            zip: form.bankZip,
-          },
-        }
-      : undefined;
+  // where the transfer goes: the recipient's bank and the bank's address
+  const recipientDetails = () => ({
+    bank: form.bank.trim(),
+    accountNumber: form.account,
+    ...(type === "domestic"
+      ? { routingNumber: form.routing }
+      : { swift: form.swift, country: form.country }),
+    bankAddress: {
+      line1: form.bankAddress.trim(),
+      city: form.bankCity.trim(),
+      state: form.bankState,
+      zip: form.bankZip,
+    },
+  });
   const transferSummary = `Sending ${formatMoney(quote.amount)} to ${form.name.trim()}`;
 
   // "Confirm and send": find out which codes the admin switched on for this customer
@@ -437,7 +442,7 @@ const Send = () => {
     // and creates the reference, all in one step
     const result = await sendTransfer({
       ...transferInfo(),
-      recipientDetails: domesticDetails(),
+      recipientDetails: recipientDetails(),
       emailProof: emailProofRef.current,
       authProof: authProofRef.current,
     });
@@ -596,7 +601,7 @@ const Send = () => {
                   id="routing"
                   label="Routing number"
                   error={err("routing")}
-                  hint="9 digits."
+                  hint="9 digits. You can find it on a check or in the recipient's banking app."
                 >
                   <div className="sd-input">
                     <Icon name="hash" className="sd-field-icon" />
@@ -731,6 +736,72 @@ const Send = () => {
                   </div>
                 </Field>
               )}
+
+              {type === "international" && (
+                <>
+                  <Field id="bankAddress" label="Bank address" error={err("bankAddress")}>
+                    <div className="sd-input">
+                      <Icon name="bank" className="sd-field-icon" />
+                      <input
+                        id="sd-bankAddress"
+                        type="text"
+                        autoComplete="off"
+                        placeholder="Street address of the bank"
+                        value={form.bankAddress}
+                        onChange={handleBankAddress}
+                        onBlur={handleBlur("bankAddress")}
+                        aria-invalid={Boolean(err("bankAddress"))}
+                      />
+                    </div>
+                  </Field>
+
+
+                  <div className="sd-row">
+                    <Field id="bankCity" label="City" error={err("bankCity")}>
+                      <div className="sd-input">
+                        <input
+                          id="sd-bankCity"
+                          type="text"
+                          autoComplete="off"
+                          placeholder="City"
+                          value={form.bankCity}
+                          onChange={handleBankCity}
+                          onBlur={handleBlur("bankCity")}
+                          aria-invalid={Boolean(err("bankCity"))}
+                        />
+                      </div>
+                    </Field>
+
+                    <Field id="bankState" label="State / region" error={err("bankState")}>
+                      <div className="sd-input">
+                        <input
+                          id="sd-bankState"
+                          type="text"
+                          autoComplete="off"
+                          placeholder="Optional"
+                          value={form.bankState}
+                          onChange={handleBankRegion}
+                        />
+                      </div>
+                    </Field>
+                  </div>
+
+                  <Field id="bankZip" label="Postal code" error={err("bankZip")}>
+                    <div className="sd-input">
+                      <input
+                        id="sd-bankZip"
+                        type="text"
+                        autoComplete="off"
+                        placeholder="Postal code"
+                        value={form.bankZip}
+                        onChange={handleBankPostal}
+                        onBlur={handleBlur("bankZip")}
+                        aria-invalid={Boolean(err("bankZip"))}
+                      />
+                    </div>
+                  </Field>
+                </>
+              )}
             </section>
           )}
 
@@ -791,7 +862,7 @@ const Send = () => {
                 </Field>
               )}
 
-              <Field id="note" label="Description (optional)">
+              <Field id="note" label="Note (optional)">
                 <div className="sd-input">
                   <Icon name="note" className="sd-field-icon" />
                   <input
@@ -862,6 +933,14 @@ const Send = () => {
                       <dd>{form.swift}</dd>
                     </div>
                     <div>
+                      <dt>Bank address</dt>
+                      <dd>
+                        {[form.bankAddress.trim(), form.bankCity.trim(), [form.bankState.trim(), form.bankZip].filter(Boolean).join(" ")]
+                          .filter(Boolean)
+                          .join(", ")}
+                      </dd>
+                    </div>
+                    <div>
                       <dt>Reason</dt>
                       <dd>{form.purpose}</dd>
                     </div>
@@ -870,7 +949,7 @@ const Send = () => {
                 {form.note.trim() && (
                   <div>
                     <dt>Note</dt>
-                    <dd>{form.note.trim()}</dd> 
+                    <dd>{form.note.trim()}</dd>
                   </div>
                 )}
               </dl>

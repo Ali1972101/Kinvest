@@ -61,4 +61,43 @@ const parseDomesticDetails = (raw) => {
   };
 };
 
-module.exports = { US_STATES, isValidRouting, parseDomesticDetails };
+/*
+  Details of the bank an international transfer is going to: SWIFT/BIC code, country and the bank's address.
+  The region and postal code follow each country's own format, so they are only checked for length.
+*/
+const parseInternationalDetails = (raw) => {
+  const body = raw && typeof raw === "object" ? raw : {};
+
+  const bank = text(body.bank, 60);
+  if (bank.length < 2) throw new HttpError(400, "Enter the recipient's bank.");
+
+  const swift = String(body.swift == null ? "" : body.swift).replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+  if (!/^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$/.test(swift))
+    throw new HttpError(400, "That SWIFT/BIC code isn't valid.", "invalid_swift");
+
+  const country = text(body.country, 2).toUpperCase();
+  if (!/^[A-Z]{2}$/.test(country)) throw new HttpError(400, "Choose the destination country.");
+
+  const accountNumber = String(body.accountNumber == null ? "" : body.accountNumber).replace(/\s/g, "");
+  if (!/^[A-Za-z0-9]{6,34}$/.test(accountNumber)) throw new HttpError(400, "Enter the recipient's account number.");
+
+  const address = body.bankAddress && typeof body.bankAddress === "object" ? body.bankAddress : {};
+  const line1 = text(address.line1, 80);
+  const city = text(address.city, 60);
+  const region = text(address.state, 60);
+  const postal = text(address.zip, 12);
+
+  if (line1.length < 5) throw new HttpError(400, "Enter the bank's street address.");
+  if (city.length < 2) throw new HttpError(400, "Enter the bank's city.");
+  if (postal.length < 3) throw new HttpError(400, "Enter the bank's postal code.");
+
+  return {
+    bank,
+    swift,
+    country,
+    accountLast4: accountNumber.slice(-4),
+    bankAddress: { line1, city, state: region, zip: postal },
+  };
+};
+
+module.exports = { US_STATES, isValidRouting, parseDomesticDetails, parseInternationalDetails };
