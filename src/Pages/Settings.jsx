@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router";
 import "./Settings.css";
+import { getSiteLanguage, setSiteLanguage } from "../Components/language";
 
 /* ---------- Icons ---------- */
 const paths = {
@@ -185,7 +186,6 @@ const languages = [...rawLanguages].sort((a, b) => a.name.localeCompare(b.name))
 const normalize = (s) =>
   s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-const LANGUAGE_KEY = "kinvest_language";
 
 
 const sections = [
@@ -219,13 +219,7 @@ const Settings = () => {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [language, setLanguage] = useState(() => {
-    try {
-      return localStorage.getItem(LANGUAGE_KEY) || "en";
-    } catch {
-      return "en";
-    }
-  });
+  const [language, setLanguage] = useState(getSiteLanguage);
 
   const noBtnRef = useRef(null);
   const searchRef = useRef(null);
@@ -294,13 +288,9 @@ const Settings = () => {
 
   const chooseLanguage = (code) => {
     setLanguage(code);
-    try {
-      localStorage.setItem(LANGUAGE_KEY, code);
-    } catch {
-      /* storage unavailable, ignore */
-    }
-    document.documentElement.lang = code;
     closeLanguage();
+    // saves the choice and switches the whole site to it
+    setSiteLanguage(code);
   };
 
   return (
