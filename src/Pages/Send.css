@@ -586,3 +586,22 @@
 .sd-suspended a:not(.sd-primary):hover {
   text-decoration: underline;
 }
+
+/* city and state, side by side (domestic bank address) */
+.sd-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.sd-row > .sd-field {
+  min-width: 0;
+}
+.sd-row .sd-input input,
+.sd-row .sd-input select {
+  min-width: 0;
+}
+@media (max-width: 340px) {
+  .sd-row {
+    grid-template-columns: 1fr;
+  }
+}

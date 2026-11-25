@@ -9,6 +9,7 @@ const { requireAuth } = require("../middleware/auth");
 const { HttpError } = require("../utils/errors");
 const { parseAmount, envNumber, toCents } = require("../utils/money");
 const { str } = require("../utils/validate");
+const { parseDomesticDetails } = require("../utils/bank");
 const { consumeTransferProof, restoreTransferProof } = require("../utils/otp");
 const { consumeAuthorizationProof, restoreAuthorizationProof } = require("../utils/authorization");
 
@@ -44,6 +45,9 @@ router.post("/transfers", requireAuth, moneyLimiter, async (req, res) => {
 
   const recipient = str(body.recipient).slice(0, 80);
   if (!recipient) throw new HttpError(400, "Enter the recipient's name.");
+
+  // a domestic transfer needs the recipient's routing number and the bank's address
+  const details = international ? undefined : parseDomesticDetails(body.recipientDetails);
 
   const amountCents = parseAmount(body.amount, {
     min: international ? envNumber("MIN_INTERNATIONAL_USD", 10) : envNumber("MIN_DOMESTIC_USD", 1),
@@ -109,6 +113,7 @@ router.post("/transfers", requireAuth, moneyLimiter, async (req, res) => {
       feeCents,
       icon: "up",
       reference,
+      details,
     });
     res.status(201).json({
       transaction,

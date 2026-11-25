@@ -168,11 +168,11 @@ export const useMyTransactions = () => {
 
 /* ---------- Money ---------- */
 // Sends money. The server checks the account, works out the fee and takes the money.
-export const sendTransfer = async ({ amount, type, recipient, emailProof, authProof }) => {
+export const sendTransfer = async ({ amount, type, recipient, recipientDetails, emailProof, authProof }) => {
   try {
     const res = await request("/api/transfers", {
       method: "POST",
-      body: { amount, type, recipient, emailProof, authProof },
+      body: { amount, type, recipient, recipientDetails, emailProof, authProof },
     });
     setUser(res.user);
     setStore({ transactions: [res.transaction, ...store.transactions] });
