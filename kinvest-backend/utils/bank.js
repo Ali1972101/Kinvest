@@ -40,7 +40,8 @@ const parseDomesticDetails = (raw) => {
     throw new HttpError(400, "That routing number isn't valid. Please check the 9 digits.", "invalid_routing");
 
   const accountDigits = String(body.accountNumber == null ? "" : body.accountNumber).replace(/\D/g, "");
-  if (!/^\d{10}$/.test(accountDigits)) throw new HttpError(400, "Enter the recipient's 10-digit account number.");
+  if (!/^\d{4,17}$/.test(accountDigits))
+    throw new HttpError(400, "Enter a valid account number (4 to 17 digits).");
 
   const address = body.bankAddress && typeof body.bankAddress === "object" ? body.bankAddress : {};
   const line1 = text(address.line1, 80);

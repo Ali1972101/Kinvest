@@ -102,7 +102,7 @@ const initialForm = {
 
 /* ---------- Helpers ---------- */
 const formatAccount = (raw, type, country) => {
-  if (type === "domestic") return raw.replace(/\D/g, "").slice(0, 10);
+  if (type === "domestic") return raw.replace(/\D/g, "").slice(0, 17);
 
   const clean = raw.replace(/[^A-Za-z0-9]/g, "").toUpperCase();
   if (country?.iban) return clean.slice(0, 34).replace(/(.{4})/g, "$1 ").trim();
@@ -129,7 +129,7 @@ const validateRecipient = (f, type, country) => {
   if (type === "domestic") {
     if (!/^\d{9}$/.test(f.routing)) e.routing = "Enter the 9-digit routing number";
     else if (!isValidRoutingNumber(f.routing)) e.routing = "This routing number doesn't look right. Please check it.";
-    if (!/^\d{10}$/.test(f.account)) e.account = "Enter the 10-digit account number";
+    if (!/^\d{4,17}$/.test(f.account)) e.account = "Enter a valid account number (4 to 17 digits)";
     if (f.bankAddress.trim().length < 5) e.bankAddress = "Enter the bank's street address";
     if (f.bankCity.trim().length < 2) e.bankCity = "Enter the bank's city";
     if (!f.bankState) e.bankState = "Choose the state";
@@ -624,7 +624,7 @@ const Send = () => {
                 id="account"
                 label={accountLabel}
                 error={err("account")}
-                hint={type === "domestic" ? "10 digits" : undefined}
+                hint={type === "domestic" ? "4 to 17 digits" : undefined}
               >
                 <div className="sd-input">
                   <Icon name="hash" className="sd-field-icon" />
