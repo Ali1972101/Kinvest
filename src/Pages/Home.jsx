@@ -206,18 +206,6 @@ const LockIcon = () => (
     <path d="M8 11V8a4 4 0 0 1 8 0v3" />
   </svg>
 );
-const UserIcon = () => (
-  <svg className="lg-icon" viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
-    <circle cx="12" cy="8" r="3.6" />
-    <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" />
-  </svg>
-);
-const KeyIcon = () => (
-  <svg className="lg-icon" viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
-    <circle cx="8" cy="15" r="3.6" />
-    <path d="M10.7 12.4 19 4m-3 3 2.5 2.5M13 10l2 2" />
-  </svg>
-);
 const ShieldIcon = () => (
   <svg className="lg-shield" viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
     <path d="M12 3 5 6v5c0 4.6 2.9 8.2 7 10 4.1-1.8 7-5.4 7-10V6l-7-3Z" />
@@ -336,13 +324,11 @@ const Home = () => {
             <div className="lg-field">
               <label htmlFor="userId">Email or User ID</label>
               <div className="lg-input">
-                <UserIcon />
                 <input
                   id="userId"
                   type="text"
                   name="kinvest-user-id"
                   autoComplete="off"
-                  placeholder="you@example.com"
                   value={userId}
                   onChange={(e) => setUserId(e.target.value)}
                   required
@@ -353,13 +339,11 @@ const Home = () => {
             <div className="lg-field">
               <label htmlFor="password">Password</label>
               <div className="lg-input">
-                <KeyIcon />
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
                   name="kinvest-password"
                   autoComplete="new-password"
-                  placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -398,7 +382,7 @@ const Home = () => {
                   Signing in…
                 </>
               ) : (
-                "Sign in securely"
+                "Sign in"
               )}
             </button>
 
