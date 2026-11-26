@@ -8,7 +8,7 @@ const { sendMail, escapeHtml } = require("../utils/mailer");
 const router = express.Router();
 
 // where the messages go. Set SUPPORT_EMAIL on Render to change it.
-const supportEmail = () => (process.env.SUPPORT_EMAIL || "support@kinqora.com").trim();
+const supportEmail = () => (process.env.SUPPORT_EMAIL || "contact@kinqora.com").trim();
 
 // a person can only send a few messages an hour, so the form can't be used to flood the inbox
 const limiter = rateLimit({
@@ -75,7 +75,7 @@ ${row("Sent", when)}
     } catch (e) {
       // the details are already in the server log (see mailer.js)
       console.error("Contact form email failed:", e.message);
-      throw new HttpError(503, "We couldn't send your message right now. Please try again, or email support@kinqora.com.");
+      throw new HttpError(503, "We couldn't send your message right now. Please try again, or email contact@kinqora.com.");
     }
 
     res.json({ ok: true });

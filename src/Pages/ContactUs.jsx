@@ -50,7 +50,7 @@ const Icon = ({ name, className = "ct-icon" }) => (
 /* ---------- Contact details (replace with your real ones) ---------- */
 const details = [
   { icon: "phone", title: "Call us", lines: ["(408) 396-1972", "Mon – Fri, 8am – 5pm"] },
-  { icon: "mail", title: "Email us", lines: ["support@kinqora.com"] },
+  { icon: "mail", title: "Email us", lines: ["contact@kinqora.com"] },
   // { icon: "pin", title: "Visit us", lines: ["123 Main Street", "Your City, State 00000"] },
   { icon: "clock", title: "Branch hours", lines: ["Mon – Fri: 9am – 5pm", "Sat: 9am – 1pm"] },
 ];
