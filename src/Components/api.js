@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   Talks to the KinvestBank backend.
+   Talks to the Kinqora backend.
    Set VITE_API_URL in your website's .env file (local) and in Vercel (live):
      VITE_API_URL=http://localhost:5000
      VITE_API_URL=https://your-backend.onrender.com

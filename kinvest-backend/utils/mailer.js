@@ -2,22 +2,22 @@
   Sends email. Pick ONE provider with environment settings:
 
   1) Brevo (recommended on Render, because it uses HTTPS and not SMTP ports):
-       BREVO_API_KEY=...        MAIL_FROM="KinvestBank <you@gmail.com>"
+       BREVO_API_KEY=...        MAIL_FROM="Kinqora <you@gmail.com>"
      In Brevo, add and verify that sender address (a Gmail address works).
 
-  2) Resend:   RESEND_API_KEY=...   MAIL_FROM="KinvestBank <alerts@yourdomain.com>"
+  2) Resend:   RESEND_API_KEY=...   MAIL_FROM="Kinqora <alerts@yourdomain.com>"
      (needs a domain you have verified in Resend)
 
   3) SMTP, for example Gmail on your own computer (npm install nodemailer):
        SMTP_HOST=smtp.gmail.com  SMTP_PORT=465  SMTP_USER=you@gmail.com
-       SMTP_PASS=<a Google "App password">  MAIL_FROM="KinvestBank <you@gmail.com>"
+       SMTP_PASS=<a Google "App password">  MAIL_FROM="Kinqora <you@gmail.com>"
      Render's free plan blocks SMTP, so use Brevo or Resend there.
 
   With nothing set, and NODE_ENV not "production", the email is printed in the server console
   instead of being sent, so you can test locally. In production it fails instead.
 */
 
-const FROM_NAME = "KinvestBank";
+const FROM_NAME = "Kinqora";
 
 const parseFrom = () => {
   const raw = (process.env.MAIL_FROM || "").trim();
@@ -126,10 +126,10 @@ const moneyText = (cents) =>
 
 const buildCodeEmail = ({ hello, intro, code, rows, minutes, warning, ignore }) => {
   const text =
-    `${hello}\n\n${intro}\n\nYour KinvestBank verification code is: ${code}\n\n` +
+    `${hello}\n\n${intro}\n\nYour Kinqora verification code is: ${code}\n\n` +
     rows.map(([k, v]) => `${k}: ${v}`).join("\n") +
     `\n\nThe code works for ${minutes} minutes and only once.\n\n${ignore}\n\n` +
-    `KinvestBank will never call or message you to ask for this code.\n`;
+    `Kinqora will never call or message you to ask for this code.\n`;
 
   const rowHtml = rows
     .map(
@@ -144,7 +144,7 @@ const buildCodeEmail = ({ hello, intro, code, rows, minutes, warning, ignore }) 
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f1f3f8;padding:28px 12px;">
 <tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:14px;overflow:hidden;font-family:Helvetica,Arial,sans-serif;color:#1a2233;">
-<tr><td style="background:#0a1d42;padding:22px 28px;color:#ffffff;font-size:19px;font-weight:600;letter-spacing:0.4px;">KinvestBank</td></tr>
+<tr><td style="background:#0a1d42;padding:22px 28px;color:#ffffff;font-size:19px;font-weight:600;letter-spacing:0.4px;">Kinqora</td></tr>
 <tr><td style="padding:30px 28px 8px;">
 <p style="margin:0 0 14px;font-size:16px;">${escapeHtml(hello)}</p>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.55;">${escapeHtml(intro)}</p>
@@ -168,7 +168,7 @@ ${rowHtml}
   return { text, html };
 };
 
-const WARNING = "KinvestBank will never call, text or email you to ask for it.";
+const WARNING = "Kinqora will never call, text or email you to ask for it.";
 
 /* ---------- The transfer code email ---------- */
 const sendTransferCodeEmail = async ({ to, firstName, code, amountCents, type, recipient, minutes }) => {
@@ -185,14 +185,14 @@ const sendTransferCodeEmail = async ({ to, firstName, code, amountCents, type, r
     warning: WARNING,
     ignore: "Didn't ask for this? Someone may be trying to use your account. Please change your password and contact support.",
   });
-  await sendMail({ to, subject: `${code} is your KinvestBank verification code`, text, html });
+  await sendMail({ to, subject: `${code} is your Kinqora verification code`, text, html });
 };
 
 /* ---------- The sign-up code email ---------- */
 const sendSignupCodeEmail = async ({ to, firstName, code, accountType, minutes }) => {
   const { text, html } = buildCodeEmail({
     hello: firstName ? `Hi ${firstName},` : "Hello,",
-    intro: "Welcome to KinvestBank. Enter this code to confirm your email address and open your account.",
+    intro: "Welcome to Kinqora. Enter this code to confirm your email address and open your account.",
     code,
     rows: [
       ["Email", to],
@@ -202,7 +202,7 @@ const sendSignupCodeEmail = async ({ to, firstName, code, accountType, minutes }
     warning: WARNING,
     ignore: "Didn't try to open an account? You can ignore this email. No account will be created without the code.",
   });
-  await sendMail({ to, subject: `${code} is your KinvestBank sign-up code`, text, html });
+  await sendMail({ to, subject: `${code} is your Kinqora sign-up code`, text, html });
 };
 
 module.exports = { sendMail, mailProvider, parseFrom, sendTransferCodeEmail, sendSignupCodeEmail };

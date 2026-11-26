@@ -111,7 +111,7 @@ const start = async () => {
   assertSecret();
   await connectDB();
 
-  const server = app.listen(PORT, () => console.log(`KinvestBank API running on port ${PORT}`));
+  const server = app.listen(PORT, () => console.log(`Kinqora API running on port ${PORT}`));
 
   // say clearly how emailed codes will be sent, so a missing setting is noticed straight away
   const provider = mailProvider();

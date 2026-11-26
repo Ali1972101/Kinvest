@@ -144,7 +144,7 @@ const ServiceAgreement = () => {
           ‹‹ Go to Online Banking Overview
         </a>
 
-        <h2>KinvestBank Online Banking Service Agreement</h2>
+        <h2>Kinqora Online Banking Service Agreement</h2>
         {/* ---------- Table of contents ---------- */}
         <nav className="toc" aria-label="Table of contents">
           <div className="toc-head">

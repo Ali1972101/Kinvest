@@ -123,7 +123,7 @@ const cards = [
     stat: "0",
     unit: "%",
     label: "intro APR offer",
-    name: "Kinvest Classic",
+    name: "Kinqora Classic",
     theme: "white",
     network: "mastercard",
     logo: logo,
@@ -191,10 +191,38 @@ const CreditCard = ({ theme, badge, logo, network }) => (
     <svg className="nfc" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M6 8c2 2.5 2 5.5 0 8M10 6c3 3.5 3 8.5 0 12M14 4c4 4.5 4 11.5 0 16" />
     </svg>
-    <img className="card-logo" src={logo} alt="KinvestBank" />
+    <img className="card-logo" src={logo} alt="Kinqora" />
     <RecycleIcon />
     {network === "visa" ? <VisaLogo /> : <MastercardLogo />}
   </div>
+);
+
+/* ---------- Sign-in icons ---------- */
+const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+
+const LockIcon = () => (
+  <svg viewBox="0 0 24 24" {...stroke}>
+    <rect x="5" y="11" width="14" height="9" rx="2" />
+    <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+  </svg>
+);
+const UserIcon = () => (
+  <svg className="lg-icon" viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <circle cx="12" cy="8" r="3.6" />
+    <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" />
+  </svg>
+);
+const KeyIcon = () => (
+  <svg className="lg-icon" viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <circle cx="8" cy="15" r="3.6" />
+    <path d="M10.7 12.4 19 4m-3 3 2.5 2.5M13 10l2 2" />
+  </svg>
+);
+const ShieldIcon = () => (
+  <svg className="lg-shield" viewBox="0 0 24 24" aria-hidden="true" {...stroke}>
+    <path d="M12 3 5 6v5c0 4.6 2.9 8.2 7 10 4.1-1.8 7-5.4 7-10V6l-7-3Z" />
+    <path d="m9 12 2.2 2.2L15.5 10" />
+  </svg>
 );
 
 /* ---------- Page ---------- */
@@ -285,7 +313,7 @@ const Home = () => {
       {/* ---------- LOGIN LOADING SCREEN ---------- */}
       {loading && (
         <div className="login-overlay" role="status" aria-live="polite">
-          <img src={logo} alt="KinvestBank" className="login-overlay-logo" />
+          <img src={logo} alt="Kinqora" className="login-overlay-logo" />
           <span className="login-spinner" aria-hidden="true" />
           <p>Logging you in…</p>
         </div>
@@ -294,49 +322,68 @@ const Home = () => {
       <section className="hero">
         {/* ---------- LEFT: LOGIN ---------- */}
         <aside className="hero-left">
-          <form className="login-card" onSubmit={handleLogin} autoComplete="off">
-            <h2 className="login-title">Welcome back</h2>
-            <p className="login-sub">Log in to your KinvestBank account</p>
-
-            <label htmlFor="userId">Email or User ID</label>
-            <input
-              id="userId"
-              type="text"
-              name="kinvest-user-id"
-              autoComplete="off"
-              value={userId}
-              onChange={(e) => setUserId(e.target.value)}
-              required
-            />
-
-            <label htmlFor="password">Password</label>
-            <div className="password-wrap">
-              <input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                name="kinvest-password"
-                autoComplete="new-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <button
-                type="button"
-                className="show-btn"
-                onClick={() => setShowPassword((s) => !s)}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
+          <form className="login-card lg" onSubmit={handleLogin} autoComplete="off">
+            <div className="lg-head">
+              <span className="lg-badge" aria-hidden="true">
+                <LockIcon />
+              </span>
+              <div>
+                <h2 className="login-title">Welcome back</h2>
+                <p className="login-sub">Sign in to your Kinqora account</p>
+              </div>
             </div>
 
-            <label className="check">
-              <input
-                type="checkbox"
-                checked={saveId}
-                onChange={(e) => setSaveId(e.target.checked)}
-              />
-              <span>Save email</span>
-            </label>
+            <div className="lg-field">
+              <label htmlFor="userId">Email or User ID</label>
+              <div className="lg-input">
+                <UserIcon />
+                <input
+                  id="userId"
+                  type="text"
+                  name="kinvest-user-id"
+                  autoComplete="off"
+                  placeholder="you@example.com"
+                  value={userId}
+                  onChange={(e) => setUserId(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="lg-field">
+              <label htmlFor="password">Password</label>
+              <div className="lg-input">
+                <KeyIcon />
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  name="kinvest-password"
+                  autoComplete="new-password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className="lg-toggle"
+                  onClick={() => setShowPassword((s) => !s)}
+                  aria-pressed={showPassword}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+            </div>
+
+            <div className="lg-row">
+              <label className="check lg-check">
+                <input type="checkbox" checked={saveId} onChange={(e) => setSaveId(e.target.checked)} />
+                <span>Remember my email</span>
+              </label>
+              <Link to="/recover" className="lg-forgot">
+                Forgot password?
+              </Link>
+            </div>
 
             {error && (
               <p className="login-error" role="alert">
@@ -348,19 +395,22 @@ const Home = () => {
               {busy ? (
                 <>
                   <span className="login-btn-spinner" aria-hidden="true" />
-                  Logging in…
+                  Signing in…
                 </>
               ) : (
-                "Log in"
+                "Sign in securely"
               )}
             </button>
 
-           <Link to="/recover" className="forgot" >Forgot password?</Link>
+            <p className="lg-secure">
+              <ShieldIcon />
+              <span>Kinqora will never ask for your password by phone, text or email.</span>
+            </p>
 
             <div className="divider" />
 
             <p className="signup-prompt">
-              Don't have an account? <Link to="/signup">Sign up</Link>
+              New to Kinqora? <Link to="/signup">Open an account</Link>
             </p>
           </form>
 
@@ -407,7 +457,7 @@ const Home = () => {
       <section className="goals">
         <h2>Your financial goals matter</h2>
         <p className="goals-sub">
-          We can help you achieve them through KinvestBank financial education
+          We can help you achieve them through Kinqora financial education
           and programs that make communities stronger.
         </p>
 

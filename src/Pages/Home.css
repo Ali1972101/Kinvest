@@ -792,3 +792,175 @@
     font-size: 17px;
   }
 }
+
+/* ---------- Sign-in card (Kinqora) ---------- */
+.login-card.lg {
+  position: relative;
+  padding: 26px 24px 22px;
+  border-radius: 0 18px 18px 0;
+  border-top: 4px solid #c39a3c;
+  box-shadow: 0 24px 48px rgba(3, 10, 28, 0.4);
+}
+.lg-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.lg-badge {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #f1d17f;
+  background: linear-gradient(135deg, #17397a, #0b1d45);
+  box-shadow: 0 6px 14px rgba(10, 29, 66, 0.3);
+}
+.lg-badge svg {
+  width: 22px;
+  height: 22px;
+}
+.lg-head .login-title {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.2px;
+}
+.lg-head .login-sub {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+}
+
+.lg-field {
+  margin-bottom: 16px;
+}
+.lg-field label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #0a1d42;
+}
+.lg-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 12px;
+  background: #f6f7fa;
+  border: 1.5px solid #d9dce4;
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.lg-input:hover {
+  border-color: #b5bac6;
+}
+.lg-input:focus-within {
+  background: #fff;
+  border-color: #b88a2a;
+  box-shadow: 0 0 0 4px rgba(184, 138, 42, 0.16);
+}
+.lg-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: #8a90a0;
+  transition: color 0.2s;
+}
+.lg-input:focus-within .lg-icon {
+  color: #b88a2a;
+}
+.login-card.lg .lg-input input[type="text"],
+.login-card.lg .lg-input input[type="password"] {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  color: #0a1d42;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+}
+.login-card.lg .lg-input input::placeholder {
+  color: #a3a8b5;
+}
+.lg-toggle {
+  flex-shrink: 0;
+  padding: 6px 4px;
+  background: none;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #163a73;
+  cursor: pointer;
+}
+.lg-toggle:hover {
+  color: #b88a2a;
+}
+
+.lg-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 18px;
+}
+.login-card .lg-check {
+  margin: 0;
+  gap: 8px;
+  font-size: 13.5px !important;
+  white-space: nowrap;
+}
+.lg-check input {
+  width: 16px;
+  height: 16px;
+}
+.lg-forgot {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #163a73;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lg-forgot:hover {
+  color: #b88a2a;
+  text-decoration: underline;
+}
+
+.login-card.lg .login-btn {
+  height: 48px;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  background: linear-gradient(135deg, #0a1d42 0%, #163a73 100%);
+  box-shadow: 0 6px 16px rgba(10, 29, 66, 0.28);
+}
+.login-card.lg .login-btn:focus-visible {
+  outline: 3px solid rgba(184, 138, 42, 0.55);
+  outline-offset: 2px;
+}
+
+.lg-secure {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #6b7080;
+}
+.lg-shield {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  color: #2f8f5b;
+}
+.login-card.lg .divider {
+  margin: 16px 0 14px;
+}

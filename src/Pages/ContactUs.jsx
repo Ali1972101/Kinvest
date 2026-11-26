@@ -49,7 +49,7 @@ const Icon = ({ name, className = "ct-icon" }) => (
 /* ---------- Contact details (replace with your real ones) ---------- */
 const details = [
   { icon: "phone", title: "Call us", lines: ["(408) 396-1972", "Mon – Fri, 8am – 5pm"] },
-  { icon: "mail", title: "Email us", lines: ["support@kinvestbank.com"] },
+  { icon: "mail", title: "Email us", lines: ["support@kinqora.com"] },
   // { icon: "pin", title: "Visit us", lines: ["123 Main Street", "Your City, State 00000"] },
   { icon: "clock", title: "Branch hours", lines: ["Mon – Fri: 9am – 5pm", "Sat: 9am – 1pm"] },
 ];
@@ -195,7 +195,7 @@ const ContactUs = () => {
                     <strong>Please do not</strong> send confidential or personal information,
                     such as account numbers, social security numbers or balances, in this form.
                     Email is not encrypted and is not a secure way to reach us. If you need help
-                    with your account, please contact a KinvestBank branch or call us and ask for
+                    with your account, please contact a Kinqora branch or call us and ask for
                     a Customer Service Representative.
                   </p>
                 </div>

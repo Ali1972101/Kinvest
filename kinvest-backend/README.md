@@ -1,4 +1,4 @@
-# KinvestBank backend
+# Kinqora backend
 
 Node + Express + MongoDB (Mongoose). It does on a server what `userStore.js` does in the browser, so balances, cards and passwords are no longer kept in the customer's browser.
 
@@ -19,7 +19,7 @@ Fill in `.env`:
 | --- | --- |
 | `MONGODB_URI` | A **new** Atlas database user and your connection string. Add a database name such as `/kinvest`. |
 | `JWT_SECRET` | `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"` |
-| `FRONTEND_URL` | Your website, for example `https://kinvestbank.vercel.app,http://localhost:5173` |
+| `FRONTEND_URL` | Your website, for example `https://kinqora.com,http://localhost:5173` |
 | `ADMIN_EMAIL`, `ADMIN_PASSWORD` | Your admin console sign-in. Leave blank to switch the console off. |
 | `ALLOW_DEMO_TOPUP` | `true` only while testing. It adds money without charging a card. |
 

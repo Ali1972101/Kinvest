@@ -15,7 +15,7 @@ const { consumeAuthorizationProof, restoreAuthorizationProof } = require("../uti
 
 const router = express.Router();
 
-const SUPPORT_EMAIL = "support@kinvest.com";
+const SUPPORT_EMAIL = "support@kinqora.com";
 const SUSPENDED_MESSAGE = `Your account has been suspended. Please contact us at ${SUPPORT_EMAIL}.`;
 
 const moneyLimiter = rateLimit({

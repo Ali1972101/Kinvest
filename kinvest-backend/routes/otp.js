@@ -32,7 +32,7 @@ const limiter = rateLimit({
   message: { message: "Too many attempts. Please try again in a few minutes." },
 });
 
-const SUPPORT_EMAIL = "support@kinvest.com";
+const SUPPORT_EMAIL = "support@kinqora.com";
 
 /* ---------- Send a code to the email the customer signed up with ---------- */
 // body: { amount, type: "domestic" | "international", recipient }

@@ -455,7 +455,7 @@ const Loan = () => {
                     onBlur={handleBlur("consent")}
                   />
                   <span>
-                    I confirm the information I gave is correct, and I agree that KinvestBank may
+                    I confirm the information I gave is correct, and I agree that Kinqora may
                     carry out credit and identity checks.
                   </span>
                 </label>

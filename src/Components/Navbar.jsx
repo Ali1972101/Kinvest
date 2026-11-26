@@ -28,8 +28,8 @@ const Navbar = () => {
     <header
       className={`navbar ${pathname === "/" ? "navbar-home" : "navbar-other"}${pathname === "/signup" ? " navbar-signup" : ""}${pathname === "/loans/apply" ? " navbar-loan-apply" : ""}${pathname === "/loan" || pathname === "/loans" ? " navbar-loan" : ""}${pathname === "/business" ? " navbar-business" : ""}${pathname === "/recover" ? " navbar-recover" : ""}`}
     >
-      <Link to="/" className="logo" aria-label="KinvestBank home">
-        <img src={logo} alt="KinvestBank" />
+      <Link to="/" className="logo" aria-label="Kinqora home">
+        <img src={logo} alt="Kinqora" />
       </Link>
 
       <ul className={`nav-links ${menuOpen ? "show" : ""}`}>

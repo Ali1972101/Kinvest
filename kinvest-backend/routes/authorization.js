@@ -28,7 +28,7 @@ const limiter = rateLimit({
   message: { message: "Too many attempts. Please try again in a few minutes." },
 });
 
-const SUPPORT_EMAIL = "support@kinvest.com";
+const SUPPORT_EMAIL = "support@kinqora.com";
 const HOUR = 60 * 60 * 1000;
 
 const assertActive = (user) => {

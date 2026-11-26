@@ -62,7 +62,7 @@ const OpenAccount = () => {
           <h2>Open an account that fits your needs</h2>
           <p className="options-sub">
             From setting up a checking or savings account to finding the right
-            home loan, KinvestBank can help.
+            home loan, Kinqora can help.
             <br />
             And for your investment needs, we offer digital tools and resources
             to help you take control of your finances.
@@ -94,7 +94,7 @@ const OpenAccount = () => {
         <div className="legal-top">
           <p>
             Banking, credit card, auto loan, mortgage and home equity products are
-            provided by KinvestBank and its affiliates. Credit and collateral are
+            provided by Kinqora and its affiliates. Credit and collateral are
             subject to approval. Terms and conditions apply. This is not a
             commitment to lend. Programs, rates, terms and conditions are subject
             to change without notice.
@@ -107,7 +107,7 @@ const OpenAccount = () => {
 
           <p>
             Brokerage services are provided by a licensed and registered
-            broker-dealer that is a partner or affiliate of KinvestBank.{" "}
+            broker-dealer that is a partner or affiliate of Kinqora.{" "}
             <a href="#">Member SIPC</a>.
           </p>
 
@@ -130,8 +130,8 @@ const OpenAccount = () => {
             Message and data rates may apply.
           </p>
 
-          <a href="/" className="legal-logo" aria-label="KinvestBank home">
-            <img src={logo} alt="KinvestBank" />
+          <a href="/" className="legal-logo" aria-label="Kinqora home">
+            <img src={logo} alt="Kinqora" />
           </a>
 
           <ul className="legal-links">
@@ -146,11 +146,11 @@ const OpenAccount = () => {
           </ul>
 
           <p className="legal-line">
-            KinvestBank, Member FDIC.{" "}
+            Kinqora, Member FDIC.{" "}
             <a href="#">Equal Housing Lender</a> <HouseIcon />
           </p>
           <p className="legal-line">
-            © {new Date().getFullYear()} KinvestBank. All rights reserved.
+            © {new Date().getFullYear()} Kinqora. All rights reserved.
           </p>
         </div>
       </footer>

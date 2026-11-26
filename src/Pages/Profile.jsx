@@ -69,7 +69,7 @@ const Profile = () => {
   // everything here comes from the details the customer gave when they signed up
   const user = {
     name: fullName(account),
-    role: account.accountType || "KinvestBank customer",
+    role: account.accountType || "Kinqora customer",
     avatar: photo,
   };
 

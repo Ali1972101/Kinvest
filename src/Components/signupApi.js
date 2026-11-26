@@ -11,7 +11,7 @@ const post = async (path, body) => {
       body: JSON.stringify(body),
     });
   } catch {
-    const e = new Error("We couldn't reach KinvestBank. Check your connection and try again.");
+    const e = new Error("We couldn't reach Kinqora. Check your connection and try again.");
     e.network = true;
     throw e;
   }

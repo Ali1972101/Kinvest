@@ -86,10 +86,10 @@ const TRUST = [
 ];
 
 const STEPS = [
-  { title: "Log in or open an account", text: "Sign in to your KinvestBank account, or open one online if you are new to us." },
+  { title: "Log in or open an account", text: "Sign in to your Kinqora account, or open one online if you are new to us." },
   { title: "Tell us what you need", text: "Choose your loan type and enter a few details about the amount and how you plan to use it." },
   { title: "Review your options", text: "See the terms available to you and compare the monthly payment before you decide." },
-  { title: "Accept and manage online", text: "Accept your offer and keep track of your loan from your KinvestBank dashboard." },
+  { title: "Accept and manage online", text: "Accept your offer and keep track of your loan from your Kinqora dashboard." },
 ];
 
 const FAQS = [
@@ -98,8 +98,8 @@ const FAQS = [
     a: "Have a valid photo ID, your contact details and information about your income and employment ready. The application will tell you if anything else is needed for the loan you choose.",
   },
   {
-    q: "Do I need a KinvestBank account to apply?",
-    a: "Yes. For your security, you need to be logged in to start an application. If you are new to KinvestBank, you can open an account online and come straight back.",
+    q: "Do I need a Kinqora account to apply?",
+    a: "Yes. For your security, you need to be logged in to start an application. If you are new to Kinqora, you can open an account online and come straight back.",
   },
   {
     q: "What is prequalification?",
@@ -271,7 +271,7 @@ const Loans = () => {
                 Learn more
               </a>
             </div>
-            <p className="ln-note">* You will need to log in to your KinvestBank account to continue.</p>
+            <p className="ln-note">* You will need to log in to your Kinqora account to continue.</p>
           </div>
 
           <PrequalArt />

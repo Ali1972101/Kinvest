@@ -177,7 +177,7 @@ const Signup = () => {
               <div className="success-icon">
                 <CheckIcon />
               </div>
-              <h2>Welcome to KinvestBank, {values.firstName}!</h2>
+              <h2>Welcome to Kinqora, {values.firstName}!</h2>
               <p>Your account is ready. Here are your details:</p>
 
               {account && (

@@ -4,7 +4,7 @@ import "./Receive.css";
 import { ACCOUNT } from "../Components/transferData";
 import { fullName, useCurrentUser } from "../Components/userStore";
 
-const NOTE = "Transfers from other KinvestBank accounts usually arrive within minutes.";
+const NOTE = "Transfers from other Kinqora accounts usually arrive within minutes.";
 
 const rowsFor = (who) => [
   { key: "holder", label: "Account name", value: who.holder },

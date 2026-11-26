@@ -14,7 +14,7 @@ export const ACCOUNT = {
   holder: "Ali",
   accountNumber: "0000000000",
   accountType: "Checking account",
-  bank: "KinvestBank",
+  bank: "Kinqora",
   iban: "XX00 KINV 0000 0000 0000 00",
   swift: "KINVXX00",
   bankAddress: "123 Main Street, Your City",

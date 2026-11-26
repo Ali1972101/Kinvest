@@ -1,4 +1,4 @@
-// Talks to the KinvestBank backend for account recovery.
+// Talks to the Kinqora backend for account recovery.
 // Uses the same VITE_API_URL setting as the rest of the website.
 const BASE = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/+$/, "");
 
@@ -11,7 +11,7 @@ const post = async (path, body) => {
       body: JSON.stringify(body),
     });
   } catch {
-    const e = new Error("We couldn't reach KinvestBank. Check your connection and try again.");
+    const e = new Error("We couldn't reach Kinqora. Check your connection and try again.");
     e.network = true;
     throw e;
   }

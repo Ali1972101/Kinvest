@@ -8,7 +8,7 @@ const LAST_UPDATED = "[September 8, 2023]";
 const clauses = [
   {
     id: "1.1",
-    text: "Thank you for visiting the KinvestBank application and for choosing to bank with us. By creating an account or using the application, you agree to these Terms and Conditions and to our Privacy Policy.",
+    text: "Thank you for visiting the Kinqora application and for choosing to bank with us. By creating an account or using the application, you agree to these Terms and Conditions and to our Privacy Policy.",
   },
   {
     id: "1.2",

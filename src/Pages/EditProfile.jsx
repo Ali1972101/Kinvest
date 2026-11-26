@@ -291,7 +291,7 @@ const EditProfile = () => {
             )}
 
             <h2>{form.fullName.trim() || "Your name"}</h2>
-            <p>{account.accountType || "KinvestBank customer"}</p>
+            <p>{account.accountType || "Kinqora customer"}</p>
           </section>
 
           {/* ---------- Full name ---------- */}

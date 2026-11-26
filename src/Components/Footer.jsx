@@ -48,16 +48,16 @@ const Footer = () => {
         </p>
         <p>
           Investment products are provided by licensed partners and affiliates
-          of KinvestBank. Product availability, terms and conditions are subject
+          of Kinqora. Product availability, terms and conditions are subject
           to change without notice.
         </p>
         <p>
           Insurance products are offered through licensed insurance agencies
-          that are partners or affiliates of KinvestBank.
+          that are partners or affiliates of Kinqora.
         </p>
         <p>
           Banking, credit card, auto loan, mortgage and home equity products are
-          provided by KinvestBank. Credit and collateral are subject to
+          provided by Kinqora. Credit and collateral are subject to
           approval. Terms and conditions apply. This is not a commitment to
           lend. Programs, rates, terms and conditions are subject to change
           without notice.
@@ -88,10 +88,10 @@ const Footer = () => {
 
         <div className="footer-legal">
           <p>
-            KinvestBank is licensed and regulated by [Federal Reserve Board].{" "}
+            Kinqora is licensed and regulated by [Federal Reserve Board].{" "}
             <a href="#">Equal Opportunity Lender</a> · License No. [ 3998020]
           </p>
-          <p>© {new Date().getFullYear()} KinvestBank. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Kinqora. All rights reserved.</p>
         </div>
       </div>
     </footer>

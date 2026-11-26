@@ -187,7 +187,7 @@ const Inner = ({ required, transfer, summary, theme, onVerified, onClose }) => {
             )}
           </div>
 
-          <p className="ec-hint">Don&apos;t have this code? Contact KinvestBank support and we&apos;ll help you.</p>
+          <p className="ec-hint">Don&apos;t have this code? Contact Kinqora support and we&apos;ll help you.</p>
 
           <div className="ec-actions">
             <button type="button" className="ec-btn ghost" onClick={onClose} disabled={checking}>
@@ -207,7 +207,7 @@ const Inner = ({ required, transfer, summary, theme, onVerified, onClose }) => {
             </button>
           </div>
 
-          <p className="ec-security">KinvestBank will never ask you for this code by phone, text or email.</p>
+          <p className="ec-security">Kinqora will never ask you for this code by phone, text or email.</p>
         </form>
       </div>
     </div>

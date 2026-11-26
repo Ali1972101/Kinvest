@@ -107,7 +107,7 @@ const AdminLogin = ({ onSuccess }) => {
       <form className="ad-login" onSubmit={submit}>
         <span className="ad-brand-mark large">K</span>
         <h1>Admin sign in</h1>
-        <p className="ad-login-sub">Authorised KinvestBank staff only.</p>
+        <p className="ad-login-sub">Authorised Kinqora staff only.</p>
 
         <label htmlFor="ad-email">Email</label>
         <input
@@ -494,7 +494,7 @@ const Console = ({ admin, onLogout }) => {
         <div className="ad-brand">
           <span className="ad-brand-mark">K</span>
           <div>
-            <strong>KinvestBank</strong>
+            <strong>Kinqora</strong>
             <small>Admin console</small>
           </div>
         </div>

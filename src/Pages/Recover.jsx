@@ -261,7 +261,7 @@ const Recover = () => {
 
               <p className="rc-secure">
                 <LockIcon />
-                <span>KinvestBank will never ask for your password by phone, text or email.</span>
+                <span>Kinqora will never ask for your password by phone, text or email.</span>
               </p>
             </div>
 
@@ -285,7 +285,7 @@ const Recover = () => {
       </main>
 
       <footer className="rc-foot">
-        <p>&copy; {new Date().getFullYear()} KinvestBank. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Kinqora. All rights reserved.</p>
       </footer>
     </div>
   );

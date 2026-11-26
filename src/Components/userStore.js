@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-   The website's data layer. It talks to the KinvestBank backend (see api.js).
+   The website's data layer. It talks to the Kinqora backend (see api.js).
    Pages keep using the same hooks as before (useCurrentUser, useMyTransactions ...).
    The latest copy of the customer's data is kept here so pages show instantly, and it
    is refreshed from the server in the background. The server is the source of truth:
@@ -19,7 +19,7 @@ import {
   setToken,
 } from "./api";
 
-export const SUPPORT_EMAIL = "support@kinvest.com";
+export const SUPPORT_EMAIL = "support@kinqora.com";
 export const SUSPENDED_MESSAGE = `Your account has been suspended. Please contact us at ${SUPPORT_EMAIL}.`;
 
 export const fullName = (u) => [u.firstName, u.lastName].filter(Boolean).join(" ") || u.email;

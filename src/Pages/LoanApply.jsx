@@ -60,7 +60,7 @@ const LoanApply = () => {
             <>
               <h1>You're signed in</h1>
               <p className="la-lead">
-                You can continue to your loans in your KinvestBank dashboard
+                You can continue to your loans in your Kinqora dashboard
                 {typeName ? ` to start your ${typeName.toLowerCase()}` : ""}.
               </p>
 
@@ -79,7 +79,7 @@ const LoanApply = () => {
             <>
               <h1>Log in to apply</h1>
               <p className="la-lead">
-                For your security, you need to be logged in to your KinvestBank account to start a loan
+                For your security, you need to be logged in to your Kinqora account to start a loan
                 application.
               </p>
 
@@ -99,7 +99,7 @@ const LoanApply = () => {
               </div>
 
               <p className="la-small">
-                New to KinvestBank? Open an account online, then come back to apply.
+                New to Kinqora? Open an account online, then come back to apply.
               </p>
             </>
           )}

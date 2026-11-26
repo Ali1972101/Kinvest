@@ -320,7 +320,7 @@ const EmailCodeDialog = ({
             </p>
 
             <p className="ec-security">
-              KinvestBank will never call or message you to ask for this code.
+              Kinqora will never call or message you to ask for this code.
             </p>
           </form>
         )}

@@ -1,7 +1,7 @@
 {
   "name": "kinvest-backend",
   "version": "1.0.0",
-  "description": "API for the KinvestBank website and app",
+  "description": "API for the Kinqora website and app",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

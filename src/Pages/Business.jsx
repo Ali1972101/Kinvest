@@ -24,7 +24,7 @@ const REVENUE = [
 ];
 
 /* ---------- "I'm interested in" ---------- */
-// art: "photo" uses the image, "debit" draws the KinvestBank debit cards, "icon" draws a simple icon
+// art: "photo" uses the image, "debit" draws the Kinqora debit cards, "icon" draws a simple icon
 const TOPICS = [
   {
     id: "needs",
@@ -43,7 +43,7 @@ const TOPICS = [
         art: "debit",
       },
       {
-        title: "KinvestBank Cash Manager",
+        title: "Kinqora Cash Manager",
         text: "See your balances, approve payments and track your cash flow in one secure place, on your computer or your phone.",
         art: "photo",
         image: cashManagerImg,
@@ -85,8 +85,8 @@ const TOPICS = [
     cards: [
       {
         col: 0,
-        eyebrow: "KINVESTBANK",
-        title: "Kinvest Rewards",
+        eyebrow: "KINQORA",
+        title: "Kinqora Rewards",
         sub: "For Business",
         text: "Members earn rewards on banking, cards and more, with no fee to join.",
         art: "none",
@@ -110,7 +110,7 @@ const TOPICS = [
       {
         col: 1,
         title: "Business credit scores",
-        text: "Lenders, suppliers and insurers may use business credit scores to make decisions about working with you. Keep an eye on your scores with KinvestBank business banking.",
+        text: "Lenders, suppliers and insurers may use business credit scores to make decisions about working with you. Keep an eye on your scores with Kinqora business banking.",
         art: "photo",
         image: creditScoresImg,
         alt: "Two smiling bakery owners holding a tray of cupcakes",
@@ -152,7 +152,7 @@ const CardShape = ({ id, from, to, ink, x, y, turn }) => (
       <path d="M53 31a13 13 0 0 1 0 16" />
     </g>
     <text x="14" y="21" fill={ink} fontSize="11" fontWeight="700" fontFamily="Poppins, Arial, sans-serif">
-      KinvestBank
+      Kinqora
     </text>
     <text x="14" y="90" fill={ink} fontSize="8" letterSpacing="1.4" fontFamily="Poppins, Arial, sans-serif" opacity="0.85">
       BUSINESS
@@ -164,7 +164,7 @@ const CardShape = ({ id, from, to, ink, x, y, turn }) => (
 );
 
 const DebitCardsArt = () => (
-  <svg className="bz-debit-art" viewBox="0 0 420 230" role="img" aria-label="KinvestBank business debit cards">
+  <svg className="bz-debit-art" viewBox="0 0 420 230" role="img" aria-label="Kinqora business debit cards">
     <CardShape id="a" from="#8a8f99" to="#5b6069" ink="#ffffff" x={22} y={86} turn={-13} />
     <CardShape id="b" from="#d93a4a" to="#a61e2e" ink="#ffffff" x={92} y={78} turn={-13} />
     <CardShape id="c" from="#1c4fb5" to="#0a1d42" ink="#ffffff" x={162} y={70} turn={-13} />
@@ -301,7 +301,7 @@ const Business = () => {
       {/* ---------- LOGIN LOADING SCREEN ---------- */}
       {loading && (
         <div className="bz-overlay" role="status" aria-live="polite">
-          <img src={logo} alt="KinvestBank" className="bz-overlay-logo" />
+          <img src={logo} alt="Kinqora" className="bz-overlay-logo" />
           <span className="bz-spinner" aria-hidden="true" />
           <p>Logging you in…</p>
         </div>

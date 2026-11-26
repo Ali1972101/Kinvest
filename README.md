@@ -1,6 +1,6 @@
-# KinvestBank website
+# Kinqora website
 
-React + Vite front end for KinvestBank. It talks to the backend in `kinvest-backend` (Node, Express, MongoDB).
+React + Vite front end for Kinqora. It talks to the backend in `kinvest-backend` (Node, Express, MongoDB).
 
 ## Requirements
 
