@@ -45,7 +45,7 @@ const mailProvider = () => {
   return null;
 };
 
-const sendMail = async ({ to, subject, text, html }) => {
+const sendMail = async ({ to, subject, text, html, replyTo }) => {
   const from = parseFrom();
 
   if (process.env.BREVO_API_KEY) {
@@ -58,6 +58,7 @@ const sendMail = async ({ to, subject, text, html }) => {
         body: JSON.stringify({
           sender: { name: from.name, email: from.email },
           to: [{ email: to }],
+          ...(replyTo ? { replyTo: { email: replyTo } } : {}),
           subject,
           htmlContent: html,
           textContent: text,
@@ -78,7 +79,7 @@ const sendMail = async ({ to, subject, text, html }) => {
       res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "content-type": "application/json" },
-        body: JSON.stringify({ from: `${from.name} <${from.email}>`, to: [to], subject, html, text }),
+        body: JSON.stringify({ from: `${from.name} <${from.email}>`, to: [to], subject, html, text, ...(replyTo ? { reply_to: [replyTo] } : {}) }),
         signal: AbortSignal.timeout(12000),
       });
     } catch (e) {
@@ -105,7 +106,7 @@ const sendMail = async ({ to, subject, text, html }) => {
       socketTimeout: 12000,
     });
     try {
-      await transport.sendMail({ from: `${from.name} <${from.email || process.env.SMTP_USER}>`, to, subject, text, html });
+      await transport.sendMail({ from: `${from.name} <${from.email || process.env.SMTP_USER}>`, to, subject, text, html, ...(replyTo ? { replyTo } : {}) });
     } catch (e) {
       throw failed("SMTP", e.code || "error", e.message);
     }
@@ -205,4 +206,4 @@ const sendSignupCodeEmail = async ({ to, firstName, code, accountType, minutes }
   await sendMail({ to, subject: `${code} is your Kinqora sign-up code`, text, html });
 };
 
-module.exports = { sendMail, mailProvider, parseFrom, sendTransferCodeEmail, sendSignupCodeEmail };
+module.exports = { sendMail, escapeHtml, mailProvider, parseFrom, sendTransferCodeEmail, sendSignupCodeEmail };

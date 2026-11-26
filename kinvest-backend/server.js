@@ -22,6 +22,7 @@ const signupRoutes = require("./routes/signup");
 const meRoutes = require("./routes/me");
 const moneyRoutes = require("./routes/money");
 const adminRoutes = require("./routes/admin");
+const contactRoutes = require("./routes/contact");
 
 const PORT = process.env.PORT || 5000;
 const isProd = process.env.NODE_ENV === "production";
@@ -78,6 +79,7 @@ app.get("/health", (req, res) => {
 app.use("/api/auth/recover", recoverRoutes);
 app.use("/api/auth/signup", signupRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/contact", contactRoutes); // public: the Contact Us form
 app.use("/api/me", meRoutes);
 app.use("/api/otp", otpRoutes);
 app.use("/api/transfers/authorization", authorizationRoutes); // COT / TAC codes (before the money routes)

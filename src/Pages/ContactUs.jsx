@@ -5,6 +5,7 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import heroImage from "../assets/Images/Contactimg.png";
 import { getHomePath } from "../Components/Homepath";
+import { request } from "../Components/api";
 
 const MAX_COMMENTS = 1000;
 
@@ -70,6 +71,7 @@ const validate = (v) => {
   if (!v.lastName.trim()) e.lastName = "Enter your last name";
   if (!/^\S+@\S+\.\S+$/.test(v.email.trim())) e.email = "Enter a valid email address";
   if (v.phone.replace(/\D/g, "").length < 7) e.phone = "Enter a valid phone number";
+  if (v.comments.trim().length < 5) e.comments = "Tell us how we can help";
   return e;
 };
 
@@ -80,6 +82,7 @@ const ContactUs = () => {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const navigate = useNavigate();
 
@@ -124,13 +127,26 @@ const ContactUs = () => {
     }
 
     setSending(true);
+    setSendError("");
 
-    // connect to your server here, for example:
-    // await fetch("/api/contact", { method: "POST", headers: {...}, body: JSON.stringify(values) });
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-
-    setSending(false);
-    setDone(true);
+    try {
+      await request("/api/contact", {
+        method: "POST",
+        body: {
+          firstName: values.firstName.trim(),
+          lastName: values.lastName.trim(),
+          email: values.email.trim(),
+          phone: values.phone.trim(),
+          comments: values.comments.trim(),
+          website: values.website,
+        },
+      });
+      setDone(true);
+    } catch (error) {
+      setSendError(error.message || "We couldn't send your message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const reset = () => {
@@ -138,6 +154,7 @@ const ContactUs = () => {
     setTouched({});
     setSubmitted(false);
     setDone(false);
+    setSendError("");
   };
 
   return (
@@ -311,8 +328,10 @@ const ContactUs = () => {
                     </div>
                   </div>
 
-                  <div className="ct-field">
-                    <label htmlFor="comments">Comments</label>
+                  <div className={`ct-field ${err("comments") ? "has-error" : ""}`}>
+                    <label htmlFor="comments">
+                      Comments <span className="ct-star">*</span>
+                    </label>
                     <textarea
                       id="comments"
                       name="comments"
@@ -321,11 +340,24 @@ const ContactUs = () => {
                       value={values.comments}
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      aria-invalid={Boolean(err("comments"))}
+                      aria-describedby={err("comments") ? "comments-error" : undefined}
                     />
+                    {err("comments") && (
+                      <p className="ct-error" id="comments-error" role="alert">
+                        {err("comments")}
+                      </p>
+                    )}
                     <p className="ct-counter">
                       {values.comments.length} / {MAX_COMMENTS}
                     </p>
                   </div>
+
+                  {sendError && (
+                    <p className="ct-error ct-send-error" role="alert">
+                      {sendError}
+                    </p>
+                  )}
 
                   <button type="submit" className="ct-btn solid" disabled={sending}>
                     {sending ? (
