@@ -41,6 +41,8 @@ router.patch("/", async (req, res) => {
   req.user.firstName = cleanName(body.firstName, "first name");
   req.user.lastName = body.lastName === "" ? req.user.lastName : cleanName(body.lastName, "last name");
   req.user.phone = cleanPhone(body.phone);
+  // the name printed on the customer's card always follows their name
+  req.user.set("card.holder", req.user.fullName());
   await req.user.save();
   res.json({ user: req.user });
 });

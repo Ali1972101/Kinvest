@@ -95,6 +95,8 @@ const userSchema = new mongoose.Schema(
         delete ret.recoveryNonce;
         delete ret.transferCodes; // admin only: the admin routes add what the admin may see
         delete ret.balanceCents;
+        // the name on the card is always the customer's current name, even on cards made before a name change
+        if (ret.card) ret.card = { ...ret.card, holder: [ret.firstName, ret.lastName].filter(Boolean).join(" ") };
         return ret;
       },
     },
