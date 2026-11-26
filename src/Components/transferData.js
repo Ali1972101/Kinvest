@@ -59,6 +59,7 @@ export const COUNTRIES = [
   { code: "QA", name: "Qatar", currency: "QAR", iban: true },
   { code: "SA", name: "Saudi Arabia", currency: "SAR", iban: true },
   { code: "SG", name: "Singapore", currency: "SGD", iban: false },
+  { code: "SK", name: "Slovakia", currency: "EUR", iban: true },
   { code: "ZA", name: "South Africa", currency: "ZAR", iban: false },
   { code: "KR", name: "South Korea", currency: "KRW", iban: false },
   { code: "ES", name: "Spain", currency: "EUR", iban: true },
